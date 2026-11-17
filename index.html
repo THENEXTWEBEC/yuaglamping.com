@@ -83,6 +83,23 @@
     .gallery-card:hover img { transform: scale(1.04); }
     .gallery-card::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(28,22,18,.58)); }
     .gallery-card span { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 16px; color: #fffaf4; font: 18px var(--serif); }
+    .gallery-tools { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:-17px 0 18px; color:var(--muted); font-size:12px; }
+    .gallery-open { display:inline-flex; align-items:center; gap:9px; padding:9px 14px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--coffee); cursor:pointer; transition:background .2s,color .2s,transform .2s; }
+    .gallery-open:hover { transform:translateY(-1px); background:var(--coffee); color:var(--beige); }
+    .gallery-open:focus-visible, .viewer-button:focus-visible { outline:3px solid var(--terracotta); outline-offset:3px; }
+    .photo-viewer[hidden] { display:none; }
+    .photo-viewer { position:fixed; z-index:20; inset:0; display:grid; grid-template-columns:64px minmax(0,1fr) 64px; align-items:center; justify-items:center; gap:20px; padding:34px clamp(16px,5vw,72px); background:rgba(28,23,19,.94); color:#fffaf4; }
+    .photo-viewer figure { grid-column:2; grid-row:1; width:min(100%,1100px); height:min(78vh,760px); margin:0; display:grid; grid-template-rows:minmax(0,1fr) auto; justify-items:center; }
+    .photo-viewer img { width:100%; height:100%; min-height:0; object-fit:contain; }
+    .photo-viewer figcaption { padding-top:14px; color:rgba(255,250,244,.88); font:20px var(--serif); text-align:center; }
+    .viewer-button { width:52px; height:52px; display:grid; place-items:center; border:1px solid rgba(255,250,244,.34); border-radius:50%; background:rgba(255,255,255,.08); color:#fffaf4; font-size:30px; cursor:pointer; transition:background .2s,transform .2s; }
+    .viewer-button:hover { background:rgba(255,255,255,.19); transform:scale(1.04); }
+    .viewer-prev { grid-column:1; grid-row:1; }
+    .viewer-next { grid-column:3; grid-row:1; }
+    .viewer-close { position:absolute; top:20px; right:24px; }
+    .viewer-count { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,250,244,.7); font-size:12px; font-variant-numeric:tabular-nums; }
+    @media (prefers-reduced-motion: reduce) { .gallery-open, .viewer-button { transition:none; } }
+
     .gallery-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
     .gallery-card:nth-child(4), .gallery-card:nth-child(7) { grid-column: span 2; }
     .experience { padding-top: 15px; }
@@ -219,6 +236,7 @@
         <div><span class="eyebrow">Un refugio hecho para desconectar</span><h2>Cabaña Yua</h2></div>
         <p class="section-intro">Madera cálida, espacios acogedores, ventanales hacia la naturaleza y un jacuzzi privado para disfrutar sin prisa.</p>
       </div>
+      <div class="gallery-tools"><span>Una mirada a cada espacio.</span><button class="gallery-open" type="button" data-gallery-open aria-label="Abrir carrusel de fotos de Cabaña Yua">Ver fotos <span aria-hidden="true">↗</span></button></div>
       <div class="gallery-grid" aria-label="Galería de la cabaña Yua">
         <a class="gallery-card" href="assets/yua/interior-yua.jpg" target="_blank" rel="noopener"><img src="assets/yua/interior-yua.jpg" alt="Interior de Cabaña Yua con cama, sala y cocina" loading="lazy" decoding="async"><span>Interior de la cabaña</span></a>
         <a class="gallery-card" href="assets/yua/sala-jacuzzi.jpg" target="_blank" rel="noopener"><img src="assets/yua/sala-jacuzzi.jpg" alt="Sala de descanso con vista al jacuzzi privado" loading="lazy" decoding="async"><span>Sala y jacuzzi privado</span></a>
@@ -237,6 +255,7 @@
         <div><span class="eyebrow">Calma, diseño y naturaleza</span><h2>Cabaña MISAKI</h2></div>
         <p class="section-intro">Un espacio de inspiración japonesa para descansar, disfrutar de la tina exterior y compartir rodeado de vegetación.</p>
       </div>
+      <div class="gallery-tools"><span>Una mirada a sus rincones.</span><button class="gallery-open" type="button" data-gallery-open aria-label="Abrir carrusel de fotos de Cabaña MISAKI">Ver fotos <span aria-hidden="true">↗</span></button></div>
       <div class="gallery-grid" aria-label="Galería de la cabaña MISAKI">
         <a class="gallery-card" href="assets/misaki/misaki-cabana-exterior.jpg" target="_blank" rel="noopener"><img src="assets/misaki/misaki-cabana-exterior.jpg" alt="Exterior de la cabaña MISAKI entre vegetación" loading="lazy" decoding="async"><span>La cabaña entre verde</span></a>
         <a class="gallery-card" href="assets/misaki/misaki-jacuzzi-burbujas.jpg" target="_blank" rel="noopener"><img src="assets/misaki/misaki-jacuzzi-burbujas.jpg" alt="Jacuzzi de MISAKI preparado con espuma" loading="lazy" decoding="async"><span>Jacuzzi para desconectar</span></a>
@@ -294,6 +313,68 @@
       menuButton.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('is-open', !expanded);
     });
+    const viewer = document.createElement('div');
+    viewer.className = 'photo-viewer';
+    viewer.hidden = true;
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-modal', 'true');
+    viewer.setAttribute('aria-label', 'Carrusel de fotografías');
+    viewer.innerHTML = '<button class="viewer-button viewer-close" type="button" aria-label="Cerrar carrusel">×</button><button class="viewer-button viewer-prev" type="button" aria-label="Foto anterior">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="viewer-button viewer-next" type="button" aria-label="Foto siguiente">›</button><div class="viewer-count" aria-live="polite"></div>';
+    document.body.append(viewer);
+    const viewerImage = viewer.querySelector('img');
+    const viewerCaption = viewer.querySelector('figcaption');
+    const viewerCount = viewer.querySelector('.viewer-count');
+    let activePhotos = [], activePhoto = 0, opener = null, touchStartX = null;
+    const showPhoto = (index) => {
+      activePhoto = (index + activePhotos.length) % activePhotos.length;
+      const link = activePhotos[activePhoto], image = link.querySelector('img');
+      viewerImage.src = image.currentSrc || image.src;
+      viewerImage.alt = image.alt;
+      viewerCaption.textContent = link.querySelector('span')?.textContent || image.alt;
+      viewerCount.textContent = String(activePhoto + 1).padStart(2, '0') + ' / ' + String(activePhotos.length).padStart(2, '0');
+    };
+    const closeViewer = () => {
+      viewer.hidden = true;
+      document.body.style.overflow = '';
+      viewerImage.removeAttribute('src');
+      opener?.focus();
+    };
+    const openViewer = (gallery, index, source) => {
+      activePhotos = [...gallery.querySelectorAll('.gallery-card')];
+      if (!activePhotos.length) return;
+      opener = source;
+      viewer.setAttribute('aria-label', 'Carrusel de fotografías · ' + (gallery.closest('section')?.querySelector('h2')?.textContent || 'YUA Glamping'));
+      showPhoto(index);
+      viewer.hidden = false;
+      document.body.style.overflow = 'hidden';
+      viewer.querySelector('.viewer-close').focus();
+    };
+    document.querySelectorAll('.gallery-grid').forEach((gallery) => {
+      gallery.querySelectorAll('.gallery-card').forEach((photo, index) => photo.addEventListener('click', (event) => {
+        event.preventDefault();
+        openViewer(gallery, index, photo);
+      }));
+      gallery.closest('section').querySelector('[data-gallery-open]')?.addEventListener('click', (event) => {
+        openViewer(gallery, 0, event.currentTarget);
+      });
+    });
+    viewer.querySelector('.viewer-close').addEventListener('click', closeViewer);
+    viewer.querySelector('.viewer-prev').addEventListener('click', () => showPhoto(activePhoto - 1));
+    viewer.querySelector('.viewer-next').addEventListener('click', () => showPhoto(activePhoto + 1));
+    viewer.addEventListener('click', (event) => { if (event.target === viewer) closeViewer(); });
+    document.addEventListener('keydown', (event) => {
+      if (viewer.hidden) return;
+      if (event.key === 'Escape') closeViewer();
+      if (event.key === 'ArrowLeft') showPhoto(activePhoto - 1);
+      if (event.key === 'ArrowRight') showPhoto(activePhoto + 1);
+    });
+    viewer.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0]?.clientX ?? null; }, { passive: true });
+    viewer.addEventListener('touchend', (event) => {
+      if (touchStartX === null) return;
+      const delta = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 45) showPhoto(activePhoto + (delta < 0 ? 1 : -1));
+      touchStartX = null;
+    }, { passive: true });
     nav.addEventListener('click', (event) => {
       if (event.target.closest('a')) {
         nav.classList.remove('is-open');
