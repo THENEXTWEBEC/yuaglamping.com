@@ -272,7 +272,14 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     }
 
     .experience-video-card:first-child{grid-column:auto;grid-row:auto}
-    .experience-video-card:first-child video{height:auto;min-height:0;aspect-ratio:16/9}
+    .experience-video-card{display:flex;flex-direction:column}
+    .experience-video-card video,
+    .experience-video-card:first-child video{
+      height:clamp(190px,30vw,430px);
+      min-height:0;
+      aspect-ratio:auto;
+    }
+    .experience-video-card figcaption{flex:1}
     .experience-video-card:nth-child(odd){grid-column:span 8}
     .experience-video-card:nth-child(even){grid-column:span 4}
     @media(max-width:900px){
@@ -283,6 +290,8 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     }
     @media(max-width:640px){
       .experience-video-grid{display:flex}
+      .experience-video-card video,
+      .experience-video-card:first-child video{height:min(46vw,215px)}
       .experience-video-card:nth-child(odd){flex:0 0 min(84vw,390px)}
       .experience-video-card:nth-child(even){flex:0 0 min(62vw,290px)}
     }
