@@ -525,20 +525,16 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     const heroVideos = [...document.querySelectorAll('.hero-video')];
     if (heroVideos.length > 1) {
       let activeHeroVideo = 0;
-      let replayTimer;
-      heroVideos.forEach((video, index) => {
+      heroVideos.forEach((video) => {
         video.addEventListener('ended', () => {
-          window.clearTimeout(replayTimer);
-          replayTimer = window.setTimeout(() => {
-            const nextIndex = (activeHeroVideo + 1) % heroVideos.length;
-            const nextVideo = heroVideos[nextIndex];
-            nextVideo.currentTime = 0;
-            nextVideo.play().then(() => {
-              nextVideo.classList.add('is-active');
-              heroVideos[activeHeroVideo].classList.remove('is-active');
-              activeHeroVideo = nextIndex;
-            }).catch(() => {});
-          }, 6000);
+          const nextIndex = (activeHeroVideo + 1) % heroVideos.length;
+          const nextVideo = heroVideos[nextIndex];
+          nextVideo.currentTime = 0;
+          nextVideo.play().then(() => {
+            nextVideo.classList.add('is-active');
+            heroVideos[activeHeroVideo].classList.remove('is-active');
+            activeHeroVideo = nextIndex;
+          }).catch(() => {});
         });
       });
     }
