@@ -207,7 +207,7 @@
 body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:0;min-height:96px;border:0;border-bottom:1px solid #ffffff5c;border-radius:0;background:transparent;backdrop-filter:none;color:#fff;padding:10px 0}
 .brand{font-size:28px;letter-spacing:.22em}.brand small{font-size:8px;letter-spacing:.5em}.nav{font-size:11px;letter-spacing:.09em;text-transform:uppercase}.nav .button{background:#eee9df;color:#252a23}.menu-toggle{color:inherit;border-color:#ffffff8a}
 .button{border-radius:0;min-height:52px;padding:0 25px;letter-spacing:.07em;text-transform:uppercase;font-size:10px}.button--light{background:transparent;color:inherit;border:1px solid currentColor}.button--light:hover{color:#252a23}
-.hero{min-height:100svh;background-image:url('assets/yua/exterior-yua.jpg');background-position:center}.hero:before{background:linear-gradient(90deg,rgba(17,24,20,.72) 0%,rgba(20,27,22,.26) 65%,rgba(20,27,22,.12)),linear-gradient(0deg,rgba(17,24,20,.55),transparent 45%)}
+.hero{min-height:100svh;background-image:url('assets/yua/exterior-yua.jpg');background-position:center}.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.hero:before{z-index:1}.hero-content,.hero-note{z-index:2}.hero:before{background:linear-gradient(90deg,rgba(17,24,20,.72) 0%,rgba(20,27,22,.26) 65%,rgba(20,27,22,.12)),linear-gradient(0deg,rgba(17,24,20,.55),transparent 45%)}
 .hero-content{width:90%;max-width:none;margin:75px auto 0;padding:5vh 0 10vh}.hero h1{font-size:clamp(64px,8.7vw,145px);max-width:1100px;line-height:.94;letter-spacing:-.055em;margin:34px 0 28px}.hero h1 em,.manifesto h2 em,#cabanas h2 em,.booking h2 em{font-weight:400}.hero-copy{max-width:360px;font-size:15px;color:#fff;line-height:1.8}.hero-note{right:5%;bottom:6%;letter-spacing:.18em;font-size:9px}.hero-note span{font-size:22px}
 .manifesto{padding:clamp(95px,12vw,190px) 7%;display:grid;grid-template-columns:.3fr 1fr .85fr;gap:5vw;align-items:center;background:#eee9df}.manifesto-number{align-self:start;font-size:10px;letter-spacing:.18em;color:#8d8e80}.manifesto h2{font:400 clamp(48px,5.5vw,90px)/1.02 var(--serif);letter-spacing:-.045em;margin:28px 0}.manifesto-copy p{max-width:380px;color:#666b60;line-height:1.85;font-size:15px}.manifesto-photo{position:relative;margin-top:8vh}.manifesto-photo:before{content:'';position:absolute;inset:-25px 24px 25px -25px;border:1px solid #a5a999;pointer-events:none}.manifesto-photo img{position:relative;display:block;width:100%;height:clamp(350px,45vw,620px);object-fit:cover;filter:saturate(.82) sepia(.08)}.manifesto-photo span{display:block;text-align:right;font:italic 16px var(--serif);margin-top:16px}.text-link{display:inline-flex;gap:35px;border-bottom:1px solid;padding:14px 0;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 .section{padding-left:7%;padding-right:7%}#cabanas{background:#273027;color:#eee9df;padding-top:clamp(95px,10vw,160px);padding-bottom:clamp(100px,11vw,170px)}#cabanas .section-heading{margin-bottom:65px}#cabanas .eyebrow{color:#c7b69d}#cabanas h2{font-size:clamp(55px,7vw,105px)}#cabanas .section-intro{color:#c9ccc2}.cabins{grid-template-columns:repeat(2,minmax(0,1fr));gap:85px 8%}.cabin:nth-child(even){transform:translateY(65px)}.cabin-image,.cabin:nth-child(n) .cabin-image{height:clamp(360px,43vw,660px);border-radius:0;background:#394337}.cabin-image img{filter:saturate(.82) sepia(.08);transition:transform .9s,filter .9s}.cabin:hover .cabin-image img{filter:saturate(1)}.cabin-number{border-radius:0;top:20px;left:20px}.cabin-meta{padding:22px 0 0}.cabin h3{font-size:clamp(32px,3vw,48px)}.cabin p{color:#c4c9be;font-size:12px}.arrow-link{border-color:#ffffff80}.pending-photo{height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:30px;background:linear-gradient(145deg,#576354,#293128);color:#ecebe2}.pending-photo span{letter-spacing:.2em;font-size:10px}.pending-photo p{font:italic 26px var(--serif);color:#d3d7cd}
@@ -240,6 +240,7 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
 
   <main>
     <section class="hero" id="inicio" aria-label="YUA Glamping en la naturaleza">
+      <video class="hero-video" autoplay muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"><source src="https://yuaglamping.com/assets/experience/experience-video-02.mp4" type="video/mp4"></video>
       <div class="hero-content">
         <span class="eyebrow">Un lugar para volver a ti</span>
         <h1>Hay lugares<br>que se sienten <em>distintos.</em></h1>
@@ -453,6 +454,21 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         menuButton.setAttribute('aria-expanded', 'false');
       }
     });
+
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      let replayTimer;
+      heroVideo.addEventListener('ended', () => {
+        window.clearTimeout(replayTimer);
+        replayTimer = window.setTimeout(() => {
+          heroVideo.currentTime = 0;
+          heroVideo.play().catch(() => {});
+        }, 6000);
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) window.clearTimeout(replayTimer);
+      });
+    }
   </script>
 </body>
 </html>
