@@ -1,0 +1,87 @@
+.yua-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+.rose-blog { background: #f6f2ea; color: #292d25; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 32px);
+}
+.blog-card { background: #eee9df; }
+.blog-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.blog-card-link img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+.blog-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(18px, 2.6vw, 36px);
+}
+.blog-meta {
+  color: #4e5e49;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.blog-card h3 {
+  font: 400 clamp(25px, 3vw, 40px)/1.05 Georgia, serif;
+  letter-spacing: -.035em;
+  margin: 0 0 14px;
+}
+.blog-card-copy > p:not(.blog-meta) { color: #52574d; font-size: 14px; line-height: 1.65; }
+.blog-link { margin-top: auto; font-size: 13px; text-decoration: underline; text-underline-offset: 5px; }
+.blog-link svg, .story-booking svg { vertical-align: middle; margin-left: 5px; }
+.blog-card-link:hover .blog-link { color: #864a35; }
+.story {
+  margin: 0;
+  color: #292d25;
+  background: #f6f2ea;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+.story a { color: inherit; text-underline-offset: 5px; }
+.story-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 5%;
+  color: #fff;
+  background: #273027;
+}
+.story-header nav { display: flex; gap: clamp(18px, 5vw, 48px); font-size: 13px; }
+.story-heading, .story-body, .story-booking { width: min(680px, 90%); margin-inline: auto; }
+.story-heading { padding: clamp(40px, 8vw, 96px) 0 32px; }
+.story-back { display: inline-block; font-size: 13px; margin-bottom: 26px; }
+.story h1 { font: 400 clamp(38px, 7vw, 82px)/.99 Georgia, serif; letter-spacing: -.045em; margin: 12px 0 18px; }
+.story-summary, .story-body { font-size: clamp(16px, 2.15vw, 19px); line-height: 1.75; }
+.story-summary { margin: 0; color: #52574d; }
+.story-photo { width: min(900px, 90%); margin: 0 auto 36px; }
+.story-photo img { display: block; width: 100%; max-height: min(66vh, 600px); object-fit: cover; }
+.story-source { font-size: 14px; }
+.story-booking {
+  border-top: 1px solid #b8b3a7;
+  margin-top: 44px;
+  padding: 28px 0 54px;
+}
+.story-booking h2 { font: 400 clamp(29px, 5vw, 44px)/1.1 Georgia, serif; margin: 0 0 16px; }
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .yua-logo { width: 54px; height: 54px; }
+  .story-photo img { max-height: 65svh; }
+}

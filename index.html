@@ -298,17 +298,18 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     .nav-arrow { width: 15px; height: 15px; flex: none; vertical-align: -.19em; }
     .nav-arrow--viewer { width: 22px; height: 22px; }
   </style>
+  <link rel="stylesheet" href="assets/blog/editorial.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="YUA Glamping, inicio">YUA<small>GLAMPING</small></a>
+    <a class="brand" href="#inicio" aria-label="YUA Glamping, inicio"><img class="yua-logo" src="assets/yua/yua-logo-original.webp" width="64" height="64" alt=""></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="Navegación principal">
       <a href="#cabanas">Cabañas</a>
       <a href="#cabana-yua">Cabaña Yua</a>
       <a href="#momentos-yua">Experiencias</a>
-      <a href="#reservas">Reservas</a>
-      <a class="button" href="#reservas">Reservar <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a>
+      <a href="#blog">Blog</a>
+      <a class="button" href="https://wa.me/593963315303">Reservas por WhatsApp <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a>
     </nav>
   </header>
 
@@ -437,12 +438,87 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       </div>
     </section>
 
-    <section class="section booking" id="reservas"><div class="booking-box"><img class="booking-photo" src="assets/yua/yua-fachada-nocturna-galeria-710.jpeg" srcset="assets/yua/yua-fachada-nocturna-galeria-480.jpeg 480w, assets/yua/yua-fachada-nocturna-galeria-710.jpeg 710w" sizes="100vw" width="710" height="812" alt="" loading="lazy" decoding="async"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>La consulta de disponibilidad en línea estará disponible próximamente. Nuestro equipo confirmará cada reserva.</p></div><a class="button button--light" href="#cabanas">Explorar las cabañas <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
+    <section class="section rose-blog" id="blog" aria-labelledby="blog-title">
+      <div class="section-heading">
+        <div><span class="eyebrow">Blog de YUA</span><h2 id="blog-title">Entre rosas</h2></div>
+        <p class="section-intro">Del invernadero al ramo, historias sobre las rosas ecuatorianas y la experiencia de conocerlas de cerca en YUA.</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/a-donde-van-las-rosas-de-ecuador/">
+            <img src="assets/blog/rosas-rojas-1040.webp" srcset="assets/blog/rosas-rojas-480.webp 480w, assets/blog/rosas-rojas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Rosas rojas abiertas y en capullo" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">De Ecuador al mundo · 2 min de lectura</p>
+              <h3>¿A dónde van las rosas de Ecuador?</h3>
+              <p>De la Sierra ecuatoriana a floristerías de otros continentes, el recorrido de una flor que viaja antes de abrirse.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/una-manana-entre-rosas/">
+            <img src="assets/blog/invernadero-1040.webp" srcset="assets/blog/invernadero-480.webp 480w, assets/blog/invernadero-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Una visitante camina entre hileras de rosales en un invernadero" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">La experiencia en YUA · 2 min de lectura</p>
+              <h3>Una mañana entre rosas</h3>
+              <p>Un paseo por el invernadero cambia la manera de mirar un ramo.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/del-capullo-al-ramo/">
+            <img src="assets/blog/rosas-fucsias-1040.webp" srcset="assets/blog/rosas-fucsias-480.webp 480w, assets/blog/rosas-fucsias-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Primer plano de rosas fucsias" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">El oficio de cultivar · 2 min de lectura</p>
+              <h3>Del capullo al ramo</h3>
+              <p>El momento del corte determina buena parte de lo que vemos días después en el florero.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/el-amarillo-en-un-ramo/">
+            <img src="assets/blog/rosas-amarillas-1040.webp" srcset="assets/blog/rosas-amarillas-480.webp 480w, assets/blog/rosas-amarillas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Rosas amarillas agrupadas en un ramo" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">Color y ocasiones · 2 min de lectura</p>
+              <h3>El amarillo en un ramo</h3>
+              <p>Una forma sencilla de escoger flores pensando en la persona y en el lugar que van a ocupar.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/como-fotografiar-rosas/">
+            <img src="assets/blog/rosas-rosadas-1040.webp" srcset="assets/blog/rosas-rosadas-480.webp 480w, assets/blog/rosas-rosadas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Capullos rosados entre hojas verdes" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">Una mirada de cerca · 2 min de lectura</p>
+              <h3>Cómo fotografiar rosas con el celular</h3>
+              <p>Tres cambios pequeños de luz, fondo y distancia para que se vean mejor los pétalos.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card-link" href="blog/una-escapada-entre-rosas/">
+            <img src="assets/blog/invernadero-1040.webp" srcset="assets/blog/invernadero-480.webp 480w, assets/blog/invernadero-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Una visitante camina entre hileras de rosales en un invernadero" loading="lazy" decoding="async">
+            <div class="blog-card-copy">
+              <p class="blog-meta">Tu visita a YUA · 2 min de lectura</p>
+              <h3>Cómo planear una escapada entre rosas</h3>
+              <p>Ideas para combinar la estadía en YUA con tiempo para conocer el cultivo.</p>
+              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section booking" id="reservas"><div class="booking-box"><img class="booking-photo" src="assets/yua/yua-fachada-nocturna-galeria-710.jpeg" srcset="assets/yua/yua-fachada-nocturna-galeria-480.jpeg 480w, assets/yua/yua-fachada-nocturna-galeria-710.jpeg 710w" sizes="100vw" width="710" height="812" alt="" loading="lazy" decoding="async"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>Escríbenos para consultar fechas, cabañas y disponibilidad de la experiencia entre rosas.</p></div><a class="button button--light" href="https://wa.me/593963315303">WhatsApp · +593 96 331 5303 <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
   </main>
 
   <footer>
     <a class="footer-brand" href="#inicio">YUA <small>GLAMPING</small></a>
-    <span>Una pausa cerca de la naturaleza.</span>
+    <a href="https://wa.me/593963315303">Reservas · +593 96 331 5303</a>
     <a href="#inicio">Volver arriba ↑</a>
   </footer>
   <script>
