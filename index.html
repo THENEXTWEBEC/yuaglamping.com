@@ -270,6 +270,22 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         background: radial-gradient(ellipse 115% 76% at 9% 51%, rgb(22 27 20 / 75%), rgb(22 27 20 / 39%) 70%, transparent);
       }
     }
+
+    .experience-video-card:first-child{grid-column:auto;grid-row:auto}
+    .experience-video-card:first-child video{height:auto;min-height:0;aspect-ratio:16/9}
+    .experience-video-card:nth-child(odd){grid-column:span 8}
+    .experience-video-card:nth-child(even){grid-column:span 4}
+    @media(max-width:900px){
+      .experience-video-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+      .experience-video-card:first-child{grid-column:auto;grid-row:auto}
+      .experience-video-card:nth-child(odd){grid-column:span 4}
+      .experience-video-card:nth-child(even){grid-column:span 2}
+    }
+    @media(max-width:640px){
+      .experience-video-grid{display:flex}
+      .experience-video-card:nth-child(odd){flex:0 0 min(84vw,390px)}
+      .experience-video-card:nth-child(even){flex:0 0 min(62vw,290px)}
+    }
   </style>
 </head>
 <body>
