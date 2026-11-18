@@ -509,6 +509,9 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       }
     });
 
+    document.querySelectorAll('.hero-video, .experience-video-card video').forEach((video) => {
+      video.playbackRate = 0.8;
+    });
     const heroVideos = [...document.querySelectorAll('.hero-video')];
     if (heroVideos.length > 1) {
       let activeHeroVideo = 0;
