@@ -216,6 +216,13 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
 @media(max-width:640px){.site-header{top:0;width:calc(100% - 40px);padding:10px 0;min-height:78px}.nav{color:#252a23;background:#eee9df;border-radius:0;box-shadow:0 16px 45px #0003}.nav .button{background:#273027;color:white}.hero{background-position:58% center}.hero-content{width:calc(100% - 40px);padding:40px 0 100px;margin-top:90px}.hero h1{font-size:clamp(57px,13.5vw,78px);margin:25px 0}.hero-copy{font-size:14px;max-width:300px}.hero-actions{align-items:flex-start;flex-direction:column}.hero-note{right:20px;bottom:25px}.manifesto{display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:85px 25px}.manifesto h2{font-size:clamp(47px,12vw,65px)}.manifesto-photo{margin:5px 0 0 20px}.manifesto-photo img{height:380px}.manifesto-photo:before{inset:-15px 15px 15px -15px}.section{padding:85px 20px}#cabanas{padding-bottom:115px}#cabanas .section-heading{margin-bottom:40px}#cabanas h2{font-size:54px}.cabins{grid-template-columns:1fr;gap:40px}.cabin:nth-child(even){transform:none}.cabin-image,.cabin:nth-child(n) .cabin-image{height:120vw;max-height:570px}.cabin-meta{padding-top:18px}.pending-photo{min-height:350px}.yua-gallery{padding-top:85px;padding-bottom:60px}.gallery-grid{grid-auto-rows:145px;gap:7px}.gallery-card{border-radius:0}.experience{padding:70px 20px}.experience-panel{min-height:0}.experience-copy{padding:48px 26px}.experience-copy h2{font-size:51px}.experience-image{min-height:380px}.experience-video-card{border-radius:0}.booking{padding:0}.booking-box{min-height:500px;padding:90px 25px}.booking h2{font-size:60px}footer{padding:45px 25px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 
+
+/* Presentación y fichas de cabañas */
+#cabanas{background:#eee9df;color:#292d25}#cabanas .eyebrow{color:#63705b}#cabanas .section-intro{color:#77766b}
+.cabins{display:grid;grid-template-columns:1fr;gap:24px}.cabin,.cabin:nth-child(even){display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);transform:none;background:#273027;color:#eee9df}.cabin:nth-child(n) .cabin-image{height:auto;min-height:clamp(440px,48vw,700px)}.cabin-meta{padding:clamp(35px,5vw,85px);align-items:center}.cabin-meta>div{max-width:350px}.cabin-kicker{display:block;color:#c7b69d;font-size:10px;letter-spacing:.2em}.cabin h3{font:400 clamp(56px,6vw,90px)/1 var(--serif);margin:30px 0}.cabin p{font-size:16px;line-height:1.75;color:#cdd1c6}.cabin-link{display:inline-flex;gap:24px;align-items:center;margin-top:36px;padding-bottom:12px;border-bottom:1px solid #c7b69d;color:#d3bc94;text-transform:uppercase;font-size:11px;letter-spacing:.12em}.cabin-link:hover{color:#fff}.cabin-link:focus-visible,.detail-back:focus-visible{outline:3px solid #a1634b;outline-offset:5px}.pending-photo{min-height:100%}
+.detail-reserve{display:inline-block;margin-top:38px;padding:16px 24px;background:#273027;color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.detail-reserve:hover{background:#475643}.cabin-detail{display:none}.detail-mode main>section{display:none}.detail-mode main>section.cabin-detail.is-active{display:block}.detail-mode .site-header{position:relative;left:auto;transform:none;width:auto;padding:20px 7%;background:#273027;min-height:86px}.detail-mode .detail-back{display:inline-block;margin:0 0 65px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;border-bottom:1px solid;padding-bottom:10px}.detail-mode .cabin-detail{min-height:70vh;padding-top:70px;padding-bottom:110px}.detail-pending{background:#eee9df}.detail-pending h2{font-size:clamp(60px,8vw,110px);margin:30px 0}.detail-pending p{color:#77766b;line-height:1.7}.detail-pending .cabin-link{color:#63705b}
+@media(max-width:640px){.cabins{gap:20px}.cabin,.cabin:nth-child(even){grid-template-columns:1fr}.cabin:nth-child(n) .cabin-image{height:75vw;min-height:270px;max-height:450px}.cabin-meta{padding:35px 27px 42px}.cabin h3{font-size:58px;margin:22px 0}.cabin p{font-size:14px}.cabin-link{margin-top:26px}.detail-mode .site-header{width:100%;padding:12px 20px}.detail-mode .detail-back{margin-bottom:45px}.detail-mode .cabin-detail{padding-top:50px;padding-bottom:70px}}
+
   </style>
 </head>
 <body>
@@ -255,26 +262,15 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         <p class="section-intro">Cuatro refugios. Cuatro formas de hacer una pausa y encontrar tu propio ritmo.</p>
       </div>
       <div class="cabins">
-        <article class="cabin">
-          <div class="cabin-image"><img src="assets/yua/interior-yua.jpg" alt="Interior cálido de la cabaña Yua con cama y sala" loading="lazy"><span class="cabin-number">01</span></div>
-          <div class="cabin-meta"><div><h3>Yua</h3><p>Rústica y cálida</p></div><a class="arrow-link" href="#cabana-yua" aria-label="Ver fotos de la cabaña Yua">↗</a></div>
-        </article>
-        <article class="cabin">
-          <div class="cabin-image"><img src="assets/misaki/misaki-cabana-exterior.jpg" alt="Cabaña MISAKI y su tina exterior entre vegetación" loading="lazy" decoding="async"><span class="cabin-number">02</span></div>
-          <div class="cabin-meta"><div><h3>Misaki</h3><p>Inspiración japonesa</p></div><a class="arrow-link" href="#cabana-misaki" aria-label="Ver fotos de la cabaña Misaki">↗</a></div>
-        </article>
-        <article class="cabin">
-          <div class="cabin-image"><div class="pending-photo"><span>03 / TULUM</span><p>Fotografías próximamente</p></div><span class="cabin-number">03</span></div>
-          <div class="cabin-meta"><div><h3>Tulum</h3><p>Conoce este refugio</p></div><a class="arrow-link" href="#reservas" aria-label="Consultar por la cabaña Tulum">↗</a></div>
-        </article>
-        <article class="cabin">
-          <div class="cabin-image"><div class="pending-photo"><span>04 / SIWA</span><p>Fotografías próximamente</p></div><span class="cabin-number">04</span></div>
-          <div class="cabin-meta"><div><h3>Siwa</h3><p>Conoce este refugio</p></div><a class="arrow-link" href="#reservas" aria-label="Consultar por la cabaña Siwa">↗</a></div>
-        </article>
+        <article class="cabin"><div class="cabin-image"><img src="assets/yua/interior-yua.jpg" alt="Interior de la cabaña Yua" loading="lazy"></div><div class="cabin-meta"><div><span class="cabin-kicker">01 / CABAÑA</span><h3>Yua</h3><p>Madera cálida, ventanales hacia la naturaleza y un jacuzzi privado para disfrutar sin prisa.</p><a class="cabin-link" href="#cabana-yua">Conocer Yua <span aria-hidden="true">↗</span></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><img src="assets/misaki/misaki-cabana-exterior.jpg" alt="Cabaña Misaki rodeada de vegetación" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">02 / CABAÑA</span><h3>Misaki</h3><p>Un espacio de inspiración japonesa para descansar y disfrutar rodeado de vegetación.</p><a class="cabin-link" href="#cabana-misaki">Conocer Misaki <span aria-hidden="true">↗</span></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><div class="pending-photo"><span>03 / TULUM</span><p>Fotografías próximamente</p></div></div><div class="cabin-meta"><div><span class="cabin-kicker">03 / CABAÑA</span><h3>Tulum</h3><p>Descubre otro de los refugios de YUA.</p><a class="cabin-link" href="#cabana-tulum">Conocer Tulum <span aria-hidden="true">↗</span></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><div class="pending-photo"><span>04 / SIWA</span><p>Fotografías próximamente</p></div></div><div class="cabin-meta"><div><span class="cabin-kicker">04 / CABAÑA</span><h3>Siwa</h3><p>Descubre otro de los refugios de YUA.</p><a class="cabin-link" href="#cabana-siwa">Conocer Siwa <span aria-hidden="true">↗</span></a></div></div></article>
       </div>
     </section>
 
-    <section class="section yua-gallery" id="cabana-yua">
+    <section class="section yua-gallery cabin-detail" id="cabana-yua">
+      <a class="detail-back" href="#cabanas">← Volver a las cabañas</a>
       <div class="section-heading">
         <div><span class="eyebrow">Un refugio hecho para desconectar</span><h2>Cabaña Yua</h2></div>
         <p class="section-intro">Madera cálida, espacios acogedores, ventanales hacia la naturaleza y un jacuzzi privado para disfrutar sin prisa.</p>
@@ -291,9 +287,11 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         <a class="gallery-card" href="assets/yua/exterior-yua.jpg" target="_blank" rel="noopener"><img src="assets/yua/exterior-yua.jpg" alt="Exterior de la cabaña Yua al anochecer" loading="lazy" decoding="async"><span>Una noche en Yua</span></a>
         <a class="gallery-card" href="assets/yua/ducha.jpg" target="_blank" rel="noopener"><img src="assets/yua/ducha.jpg" alt="Ducha con claraboya de luz natural" loading="lazy" decoding="async"><span>Luz y agua</span></a>
       </div>
+      <a class="detail-reserve" href="#reservas">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
     </section>
 
-    <section class="section yua-gallery misaki-gallery" id="cabana-misaki">
+    <section class="section yua-gallery misaki-gallery cabin-detail" id="cabana-misaki">
+      <a class="detail-back" href="#cabanas">← Volver a las cabañas</a>
       <div class="section-heading">
         <div><span class="eyebrow">Calma, diseño y naturaleza</span><h2>Cabaña MISAKI</h2></div>
         <p class="section-intro">Un espacio de inspiración japonesa para descansar, disfrutar de la tina exterior y compartir rodeado de vegetación.</p>
@@ -311,7 +309,11 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         <a class="gallery-card" href="assets/misaki/misaki-sendero-noche.jpg" target="_blank" rel="noopener"><img src="assets/misaki/misaki-sendero-noche.jpg" alt="Sendero de piedra iluminado hacia la cabaña" loading="lazy" decoding="async"><span>Llegada entre árboles</span></a>
         <a class="gallery-card" href="assets/misaki/misaki-sendero.jpg" target="_blank" rel="noopener"><img src="assets/misaki/misaki-sendero.jpg" alt="Sendero de piedra y zona exterior con parrilla" loading="lazy" decoding="async"><span>Espacios al aire libre</span></a>
       </div>
+      <a class="detail-reserve" href="#reservas">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
     </section>
+
+    <section class="section cabin-detail detail-pending" id="cabana-tulum"><a class="detail-back" href="#cabanas">← Volver a las cabañas</a><span class="eyebrow">YUA Glamping / Cabaña</span><h2>Tulum</h2><p>Pronto compartiremos fotografías e información de esta cabaña.</p><a class="cabin-link" href="#reservas">Consultar disponibilidad <span aria-hidden="true">↗</span></a></section>
+    <section class="section cabin-detail detail-pending" id="cabana-siwa"><a class="detail-back" href="#cabanas">← Volver a las cabañas</a><span class="eyebrow">YUA Glamping / Cabaña</span><h2>Siwa</h2><p>Pronto compartiremos fotografías e información de esta cabaña.</p><a class="cabin-link" href="#reservas">Consultar disponibilidad <span aria-hidden="true">↗</span></a></section>
 
     <section class="section experience" id="experiencia">
       <div class="experience-panel">
@@ -371,6 +373,17 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     <a href="#inicio">Volver arriba ↑</a>
   </footer>
   <script>
+
+    const detailSections = [...document.querySelectorAll('.cabin-detail')];
+    function syncCabinRoute() {
+      const selected = detailSections.find(section => '#' + section.id === location.hash);
+      document.body.classList.toggle('detail-mode', Boolean(selected));
+      detailSections.forEach(section => section.classList.toggle('is-active', section === selected));
+      if (selected) window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', syncCabinRoute);
+    syncCabinRoute();
+
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
     menuButton.addEventListener('click', () => {
