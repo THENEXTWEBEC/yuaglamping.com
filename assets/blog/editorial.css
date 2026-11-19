@@ -85,3 +85,63 @@
   .yua-logo { width: 54px; height: 54px; }
   .story-photo img { max-height: 65svh; }
 }
+
+:root {
+  --yua-olive-background: #364432;
+  --yua-beige-card: #eee4d3;
+  --yua-light-text: #f7f0e5;
+  --yua-muted-light: #e1dbcc;
+}
+
+body,
+body.story,
+#cabanas,
+#blog,
+#momentos-yua,
+main > .manifesto,
+main > .experience,
+main > .cabin-detail {
+  background: var(--yua-olive-background);
+  color: var(--yua-light-text);
+}
+
+#cabanas .section-heading .eyebrow,
+#cabanas .section-intro,
+#blog .section-heading .eyebrow,
+#blog .section-intro,
+#momentos-yua .section-heading .eyebrow,
+#momentos-yua .section-intro,
+.cabin-detail .section-heading .eyebrow,
+.cabin-detail .section-intro,
+.story .blog-meta,
+.story-summary,
+main > .manifesto .manifesto-copy p {
+  color: var(--yua-muted-light);
+}
+
+#cabanas .cabin {
+  background: var(--yua-beige-card);
+  color: #292d25;
+}
+#cabanas .cabin p,
+#cabanas .cabin .cabin-kicker,
+#cabanas .cabin .cabin-link {
+  color: #43513d;
+}
+#cabanas .cabin .cabin-link {
+  border-color: #75816c;
+}
+#cabanas .cabin .cabin-link:hover {
+  color: #793e2b;
+}
+#blog .blog-card {
+  color: #292d25;
+}
+.cabin-detail .gallery-open {
+  border-color: currentColor;
+  color: var(--yua-light-text);
+}
+.cabin-detail .gallery-open:hover {
+  background: var(--yua-beige-card);
+  color: #292d25;
+}
