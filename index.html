@@ -297,6 +297,14 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     }
     .nav-arrow { width: 15px; height: 15px; flex: none; vertical-align: -.19em; }
     .nav-arrow--viewer { width: 22px; height: 22px; }
+  
+    .prices{background:#273027;color:#eee9df;padding-top:clamp(75px,9vw,125px);padding-bottom:clamp(75px,9vw,125px)}
+    .prices .eyebrow{color:#c7b69d}.prices .section-intro,.prices-note{color:#c9ccc2}.prices-subtitle{font:400 clamp(28px,3.5vw,42px)/1.1 var(--serif);margin:44px 0 17px}
+    .prices-table-wrap{overflow-x:auto}.prices-table{width:100%;min-width:620px;border-collapse:collapse;text-align:left}.prices-table th,.prices-table td{padding:14px 12px;border-bottom:1px solid #ffffff30;font-size:13px;line-height:1.55}.prices-table thead th{color:#c7b69d;text-transform:uppercase;letter-spacing:.08em;font-size:10px}.prices-table tbody th{font:400 20px var(--serif);white-space:nowrap}
+    .prices-note{font-size:12px;line-height:1.7;margin:17px 0}.prices-extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}.prices-extras p{padding:13px 0;margin:0;border-bottom:1px solid #ffffff30;font-size:13px}.prices-extras b,.prices-extras span{display:block}.prices-extras span{margin-top:5px;color:#c9ccc2;font-size:12px}
+    .quote-box{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;padding:clamp(22px,5vw,50px);background:#eee9df;color:#292d25}.quote-box h3{grid-column:1/-1;font:400 clamp(34px,4vw,52px)/1 var(--serif);margin:0}.quote-form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.quote-form label{display:grid;gap:7px;font-size:11px;letter-spacing:.04em}.quote-form input,.quote-form select{width:100%;padding:12px;border:1px solid #c7c2b7;background:#fff;color:#292d25;font:inherit}.quote-form .quote-full{grid-column:1/-1}.quote-form select[multiple]{min-height:118px}.quote-form small{font-size:10px;color:#77766b;line-height:1.5}.quote-summary{display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:#d9ddcf}.quote-summary p{font-size:13px;line-height:1.65}.quote-total{display:block;font:400 33px var(--serif);margin:18px 0}.quote-foot{color:#62665b;font-size:11px!important}.quote-summary .button{align-self:flex-start;background:#273027;color:white}
+    @media(max-width:700px){.prices-extras{grid-template-columns:1fr}.quote-box{grid-template-columns:1fr;margin-left:-20px;margin-right:-20px;padding:24px 20px}.quote-box h3{grid-column:auto}.quote-form{grid-template-columns:1fr}.quote-form .quote-full{grid-column:auto}.prices-table{min-width:580px}}
+
   </style>
   <link rel="stylesheet" href="assets/blog/editorial.css">
 </head>
@@ -305,11 +313,8 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     <a class="brand" href="#inicio" aria-label="YUA Glamping, inicio"><img class="yua-logo" src="assets/yua/yua-logo-original.webp" width="64" height="64" alt=""></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="Navegación principal">
-      <a href="#cabanas">Cabañas</a>
-      <a href="#cabana-yua">Cabaña Yua</a>
-      <a href="#momentos-yua">Experiencias</a>
-      <a href="#blog">Blog</a>
-      <a class="button" href="https://wa.me/593963315303">Reservas por WhatsApp <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a>
+      <a href="#inicio">Inicio</a><a href="#cabanas">Cabañas</a><a href="#precios">Precios</a>
+      <a class="button" href="#reservas">Reservar / WhatsApp</a>
     </nav>
   </header>
 
@@ -341,9 +346,9 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         <p class="section-intro">Tres refugios para hacer una pausa y encontrar tu propio ritmo.</p>
       </div>
       <div class="cabins">
-        <article class="cabin"><div class="cabin-image"><img src="assets/yua/yua-fachada-nocturna-galeria-710.jpeg" srcset="assets/yua/yua-fachada-nocturna-galeria-480.jpeg 480w, assets/yua/yua-fachada-nocturna-galeria-710.jpeg 710w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="710" height="812" alt="Fachada nocturna de la cabaña Yua" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">01 / CABAÑA</span><h3>Yua</h3><p>Madera cálida, ventanales hacia la naturaleza y un jacuzzi privado para disfrutar sin prisa.</p><a class="cabin-link" href="#cabana-yua">Conocer Yua <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
-        <article class="cabin"><div class="cabin-image"><img src="assets/misaki/misaki-portada-nocturna-1100.jpeg" srcset="assets/misaki/misaki-portada-nocturna-480.jpeg 480w, assets/misaki/misaki-portada-nocturna-1100.jpeg 1100w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="1100" height="1258" alt="Fachada nocturna de la cabaña Misaki" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">02 / CABAÑA</span><h3>Misaki</h3><p>Un espacio de inspiración japonesa para descansar y disfrutar rodeado de vegetación.</p><a class="cabin-link" href="#cabana-misaki">Conocer Misaki <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
-        <article class="cabin"><div class="cabin-image"><img src="assets/tulum/tulum-portada-nocturna-1100.jpeg" srcset="assets/tulum/tulum-portada-nocturna-480.jpeg 480w, assets/tulum/tulum-portada-nocturna-1100.jpeg 1100w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="1100" height="1258" alt="Fachada nocturna de la cabaña Tulum" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">03 / CABAÑA</span><h3>Tulum</h3><p>Un refugio entre vegetación para desconectar y descansar.</p><a class="cabin-link" href="#cabana-tulum">Conocer Tulum <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><img src="assets/yua/yua-fachada-nocturna-galeria-710.jpeg" srcset="assets/yua/yua-fachada-nocturna-galeria-480.jpeg 480w, assets/yua/yua-fachada-nocturna-galeria-710.jpeg 710w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="710" height="812" alt="Fachada nocturna de la cabaña Yua" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">01 / CABAÑA</span><h3>Yua</h3><p>Refugio rústico para hasta 5 personas, con jacuzzi exterior de hidromasaje y área social amplia. Desde $100 por noche para dos.</p><a class="cabin-link" href="#cabana-yua">Conocer Yua <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><img src="assets/misaki/misaki-portada-nocturna-1100.jpeg" srcset="assets/misaki/misaki-portada-nocturna-480.jpeg 480w, assets/misaki/misaki-portada-nocturna-1100.jpeg 1100w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="1100" height="1258" alt="Fachada nocturna de la cabaña Misaki" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">02 / CABAÑA</span><h3>Misaki</h3><p>Armonía japonesa para hasta 4 personas y tina privada interior. Desde $100 por noche para dos.</p><a class="cabin-link" href="#cabana-misaki">Conocer Misaki <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
+        <article class="cabin"><div class="cabin-image"><img src="assets/tulum/tulum-portada-nocturna-1100.jpeg" srcset="assets/tulum/tulum-portada-nocturna-480.jpeg 480w, assets/tulum/tulum-portada-nocturna-1100.jpeg 1100w" sizes="(max-width: 640px) calc(100vw - 60px), min(54vw, calc((100svh - 64px) * 1.08))" width="1100" height="1258" alt="Fachada nocturna de la cabaña Tulum" loading="lazy" decoding="async"></div><div class="cabin-meta"><div><span class="cabin-kicker">03 / CABAÑA</span><h3>Tulum</h3><p>Esencia tropical para parejas, con capacidad para 2 personas. Desde $100 por noche para dos.</p><a class="cabin-link" href="#cabana-tulum">Conocer Tulum <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></div></article>
       </div>
     </section>
 
@@ -374,7 +379,7 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       </div>
       <div class="gallery-tools"><span>Una mirada a sus rincones.</span><button class="gallery-open" type="button" data-gallery-open aria-label="Abrir carrusel de fotos de Cabaña MISAKI">Ver fotos <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></button></div>
       <div class="gallery-grid" aria-label="Galería de la cabaña MISAKI">
-        <a class="gallery-card" href="assets/misaki/misaki-cocina-y-comedor-galeria-710.jpeg" target="_blank" rel="noopener"><img src="assets/misaki/misaki-cocina-y-comedor-galeria-710.jpeg" srcset="assets/misaki/misaki-cocina-y-comedor-galeria-480.jpeg 480w, assets/misaki/misaki-cocina-y-comedor-galeria-710.jpeg 710w" sizes="(max-width: 640px) calc(100vw - 40px), 43vw" width="710" height="736" alt="Cocina de madera y comedor bajo de Misaki" loading="lazy" decoding="async" data-viewer-srcset="assets/misaki/misaki-cocina-y-comedor-galeria-480.jpeg 480w, assets/misaki/misaki-cocina-y-comedor-galeria-710.jpeg 710w" data-photo-ratio="0.9647"></a>
+
         <a class="gallery-card" href="assets/misaki/misaki-ducha-1012.webp" target="_blank" rel="noopener"><img src="assets/misaki/misaki-ducha-1012.webp" srcset="assets/misaki/misaki-ducha-480.webp 480w, assets/misaki/misaki-ducha-1012.webp 1012w" sizes="(max-width: 640px) calc(50vw - 24px), 22vw" width="1012" height="1800" alt="Ducha de MISAKI con revestimiento de madera y piedra" loading="lazy" decoding="async" data-viewer-srcset="assets/misaki/misaki-ducha-480.webp 480w, assets/misaki/misaki-ducha-1012.webp 1012w" data-photo-ratio="0.5622"></a>
         <a class="gallery-card" href="assets/misaki/misaki-bano-1012.webp" target="_blank" rel="noopener"><img src="assets/misaki/misaki-bano-1012.webp" srcset="assets/misaki/misaki-bano-480.webp 480w, assets/misaki/misaki-bano-1012.webp 1012w" sizes="(max-width: 640px) calc(50vw - 24px), 22vw" width="1012" height="1800" alt="Baño de MISAKI con lavamanos de piedra y espejo amplio" loading="lazy" decoding="async" data-viewer-srcset="assets/misaki/misaki-bano-480.webp 480w, assets/misaki/misaki-bano-1012.webp 1012w" data-photo-ratio="0.5622"></a>
         <a class="gallery-card" href="assets/misaki/misaki-tina-interior-1029.webp" target="_blank" rel="noopener"><img src="assets/misaki/misaki-tina-interior-1029.webp" srcset="assets/misaki/misaki-tina-interior-480.webp 480w, assets/misaki/misaki-tina-interior-1029.webp 1029w" sizes="(max-width: 640px) calc(50vw - 24px), 43vw" width="1029" height="1800" alt="Tina interior de MISAKI iluminada con luz azul" loading="lazy" decoding="async" data-viewer-srcset="assets/misaki/misaki-tina-interior-480.webp 480w, assets/misaki/misaki-tina-interior-1029.webp 1029w" data-photo-ratio="0.5717"></a>
@@ -437,79 +442,28 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       </div>
     </section>
 
-    <section class="section rose-blog" id="blog" aria-labelledby="blog-title">
-      <div class="section-heading">
-        <div><span class="eyebrow">Blog de YUA</span><h2 id="blog-title">Entre rosas</h2></div>
-        <p class="section-intro">Del invernadero al ramo, historias sobre las rosas ecuatorianas y la experiencia de conocerlas de cerca en YUA.</p>
+    <section class="section prices" id="precios" aria-labelledby="prices-title">
+      <div class="section-heading"><div><span class="eyebrow">Información para tu estadía</span><h2 id="prices-title">Elige tu<br><em>experiencia.</em></h2></div><p class="section-intro">Precios por noche para dos personas. Selecciona cabaña, fechas y extras; te enviaremos la consulta lista por WhatsApp.</p></div>
+      <h3 class="prices-subtitle">Hospedaje y experiencias</h3>
+      <div class="prices-table-wrap"><table class="prices-table"><thead><tr><th>Paquete</th><th>Incluye para 2</th><th>Domingo a viernes</th><th>Sábado / feriado</th></tr></thead><tbody>
+        <tr><th>Escapada</th><td>Hospedaje</td><td>$100</td><td>$160</td></tr><tr><th>Romance</th><td>Hospedaje, desayuno y decoración romántica</td><td>$135</td><td>$210</td></tr><tr><th>ZEN</th><td>Hospedaje, desayuno y masajes en pareja</td><td>$160</td><td>$230</td></tr><tr><th>SIGNATURE</th><td>Hospedaje, desayuno, cena, masajes y decoración</td><td>$230</td><td>$285</td></tr><tr><th>YUA WILD</th><td>Hospedaje + cuadrón por 1 hora</td><td>$130</td><td>$205</td></tr><tr><th>YUA ADRENALINE</th><td>Hospedaje + RZR por 1 hora</td><td>$185</td><td>$255</td></tr>
+      </tbody></table></div>
+      <p class="prices-note">Paquetes para dos personas. Cada vehículo admite dos personas que pueden turnarse para conducir. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, sujetas a horarios y disponibilidad.</p>
+      <h3 class="prices-subtitle">Personaliza tu reserva</h3><div class="prices-extras">
+        <p><b>Decoración romántica · $50</b><span>Pétalos, globos, vino, ramo de rosas y letrero LED.</span></p><p><b>Decoración premium · $70</b><span>Incluye lo anterior y un corazón de pétalos con letrero LED.</span></p><p><b>Desayuno · $15 por pareja</b></p><p><b>Cena · $23,50 por pareja</b></p><p><b>Masaje relajante · $65 por pareja</b><span>Duración aproximada: 40–45 minutos.</span></p><p><b>Masaje adicional · $30 por persona</b></p><p><b>RZR · $85 por vehículo</b><span>Una hora · hasta dos personas.</span></p><p><b>Cuadrón · $35 por vehículo</b><span>Una hora · hasta dos personas.</span></p>
       </div>
-      <div class="blog-grid">
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/a-donde-van-las-rosas-de-ecuador/">
-            <img src="assets/blog/rosas-rojas-1040.webp" srcset="assets/blog/rosas-rojas-480.webp 480w, assets/blog/rosas-rojas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Rosas rojas abiertas y en capullo" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">De Ecuador al mundo · 2 min de lectura</p>
-              <h3>¿A dónde van las rosas de Ecuador?</h3>
-              <p>De la Sierra ecuatoriana a floristerías de otros continentes, el recorrido de una flor que viaja antes de abrirse.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/una-manana-entre-rosas/">
-            <img src="assets/blog/invernadero-1040.webp" srcset="assets/blog/invernadero-480.webp 480w, assets/blog/invernadero-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Una visitante camina entre hileras de rosales en un invernadero" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">La experiencia en YUA · 2 min de lectura</p>
-              <h3>Una mañana entre rosas</h3>
-              <p>Un paseo por el invernadero cambia la manera de mirar un ramo.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/del-capullo-al-ramo/">
-            <img src="assets/blog/rosas-fucsias-1040.webp" srcset="assets/blog/rosas-fucsias-480.webp 480w, assets/blog/rosas-fucsias-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Primer plano de rosas fucsias" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">El oficio de cultivar · 2 min de lectura</p>
-              <h3>Del capullo al ramo</h3>
-              <p>El momento del corte determina buena parte de lo que vemos días después en el florero.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/el-amarillo-en-un-ramo/">
-            <img src="assets/blog/rosas-amarillas-1040.webp" srcset="assets/blog/rosas-amarillas-480.webp 480w, assets/blog/rosas-amarillas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Rosas amarillas agrupadas en un ramo" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">Color y ocasiones · 2 min de lectura</p>
-              <h3>El amarillo en un ramo</h3>
-              <p>Una forma sencilla de escoger flores pensando en la persona y en el lugar que van a ocupar.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/como-fotografiar-rosas/">
-            <img src="assets/blog/rosas-rosadas-1040.webp" srcset="assets/blog/rosas-rosadas-480.webp 480w, assets/blog/rosas-rosadas-1040.webp 1040w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Capullos rosados entre hojas verdes" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">Una mirada de cerca · 2 min de lectura</p>
-              <h3>Cómo fotografiar rosas con el celular</h3>
-              <p>Tres cambios pequeños de luz, fondo y distancia para que se vean mejor los pétalos.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card-link" href="blog/una-escapada-entre-rosas/">
-            <img src="assets/tulum/tulum-cabana-exterior-1100.webp" srcset="assets/tulum/tulum-cabana-exterior-480.webp 480w, assets/tulum/tulum-cabana-exterior-1100.webp 1100w" sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw" alt="Exterior de una cabaña de madera en YUA Glamping" loading="lazy" decoding="async">
-            <div class="blog-card-copy">
-              <p class="blog-meta">Tu visita a YUA · 2 min de lectura</p>
-              <h3>Cómo planear una escapada entre rosas</h3>
-              <p>Ideas para combinar la estadía en YUA con tiempo para conocer el cultivo.</p>
-              <span class="blog-link">Leer artículo <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
-            </div>
-          </a>
-        </article>
+      <p class="prices-note">Letreros LED: “Te amo”, “¿Quieres ser mi novia?”, “¿Quieres casarte conmigo?” y “Happy Birthday”. Los extras incluidos en un paquete no se cobran dos veces. Decoración romántica y premium son alternativas.</p>
+      <div class="quote-box" id="reservas"><h3>Consulta tu estadía</h3>
+        <form class="quote-form" id="quote-form">
+          <label>Tu nombre<input name="name" autocomplete="given-name" placeholder="Nombre" required></label><label>Cabaña<select name="cabin"><option>YUA</option><option>TULUM</option><option>MISAKI</option></select></label>
+          <label>Ingreso<input name="checkin" type="date" required></label><label>Salida<input name="checkout" type="date" required></label>
+          <label>Personas<select name="guests"><option value="2">2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 personas</option></select></label>
+          <label>Paquete<select name="package"><option>Escapada</option><option>Romance</option><option>ZEN</option><option>SIGNATURE</option><option>YUA WILD</option><option>YUA ADRENALINE</option></select></label>
+          <label class="quote-full">Extras (puedes elegir varios)<select name="extras" multiple size="5"><option value="Decoración romántica|50">Decoración romántica · $50</option><option value="Decoración premium|70">Decoración premium · $70</option><option value="Desayuno|15">Desayuno · $15 por pareja</option><option value="Cena|23.5">Cena · $23,50 por pareja</option><option value="Masaje relajante|65">Masaje relajante · $65 por pareja</option><option value="Masaje adicional|30">Masaje adicional · $30 por persona</option><option value="RZR|85">RZR · $85 por vehículo</option><option value="Cuadrón|35">Cuadrón · $35 por vehículo</option></select><small>Para elegir varias opciones en celular, mantén presionada una opción.</small></label>
+        </form>
+        <div class="quote-summary"><div><p id="quote-breakdown">Elige tus fechas para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El estimado es referencial. La solicitud no bloquea fechas; el equipo confirmará disponibilidad y precio por WhatsApp.</p></div><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a></div>
       </div>
+      <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
     </section>
 
     <section class="section booking" id="reservas"><div class="booking-box"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>Escríbenos para consultar fechas, cabañas y disponibilidad de la experiencia entre rosas.</p></div><a class="button button--light" href="https://wa.me/593963315303">WhatsApp · +593 96 331 5303 <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
@@ -630,5 +584,12 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       });
     }
   </script>
+
+<script>
+(()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'
+</html>
++n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.elements.extras.selectedOptions].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30*nights;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola, soy '+(d.get('name')||'')+'. Quiero consultar una reserva en YUA Glamping.\\n\\nCabaña: '+cabin+'\\nIngreso: '+(start||'por definir')+'\\nSalida: '+(end||'por definir')+'\\nPersonas: '+guests+'\\nPaquete: '+pkg+'\\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+'\\n\\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
+</script>
+
 </body>
 </html>
