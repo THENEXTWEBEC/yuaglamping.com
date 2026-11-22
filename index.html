@@ -52,6 +52,7 @@
     h1, h2, h3, p { margin-top: 0; }
     h1 { max-width: 700px; margin: 25px 0 20px; font: 400 clamp(52px, 7.2vw, 96px)/.99 var(--serif); letter-spacing: -.045em; }
     .hero-copy { max-width: 450px; margin-bottom: 30px; color: rgba(255,250,242,.9); font-size: clamp(15px, 1.45vw, 18px); line-height: 1.65; }
+    .hero-location { max-width: 400px; margin: -18px 0 28px; color: rgba(255,250,242,.82); font-size: 13px; line-height: 1.6; }
     .hero-actions { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
     .hero-note { position: absolute; right: 5%; bottom: 42px; display: flex; align-items: center; gap: 10px; color: #f5efe6; font-size: 11px; letter-spacing: .08em; }
     .hero-note::before { content: ""; width: 44px; height: 1px; background: currentColor; }
@@ -306,15 +307,15 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     @media(max-width:700px){.prices-extras{grid-template-columns:1fr}.quote-box{grid-template-columns:1fr;margin-left:-20px;margin-right:-20px;padding:24px 20px}.quote-box h3{grid-column:auto}.quote-form{grid-template-columns:1fr}.quote-form .quote-full{grid-column:auto}.prices-table{min-width:580px}}
 
   </style>
-  <link rel="stylesheet" href="assets/blog/editorial.css">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="YUA Glamping, inicio"><img class="yua-logo" src="assets/yua/yua-logo-original.webp" width="64" height="64" alt=""></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a><a href="#cabanas">Cabañas</a><a href="#precios">Precios</a>
-      <a class="button" href="#reservas">Reservar / WhatsApp</a>
+      <a href="#cabana-yua">YUA</a><a href="#cabana-misaki">MISAKI</a><a href="#cabana-tulum">TULUM</a><a href="#cabana-siwa">SIWA</a>
+      <a href="#paquetes">PAQUETES</a><a href="#personaliza">PERSONALIZA TU EXPERIENCIA</a>
+      <a class="button" href="#reservas">Reservar</a>
     </nav>
   </header>
 
@@ -328,6 +329,7 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
         <span class="eyebrow">Un lugar para volver a ti</span>
         <h1>Hay lugares<br>que se sienten <em>distintos.</em></h1>
         <p class="hero-copy">Un refugio entre naturaleza, arquitectura y tiempo para estar. Bienvenido a YUA.</p>
+        <p class="hero-location">En Aláquez, Latacunga, a unos 90 minutos de Quito.</p>
         <div class="hero-actions">
           <a class="button" href="#reservas">Reserva tu estadía <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a>
           <a class="button button--light" href="#cabanas">Descubre las cabañas</a>
@@ -409,6 +411,12 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
       <a class="detail-reserve" href="#reservas">Consultar disponibilidad <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a>
     </section>
 
+    <section class="section cabin-detail detail-pending" id="cabana-siwa">
+      <a class="detail-back" href="#cabanas">← Volver a las cabañas</a>
+      <span class="eyebrow">Próximamente</span><h2>SIWA</h2>
+      <p>La información de esta cabaña estará disponible próximamente.</p>
+    </section>
+
     <section class="section yua-gallery experience-media" id="momentos-yua">
       <div class="section-heading">
         <div><span class="eyebrow">Detalles que se sienten</span><h2>Momentos para recordar.</h2></div>
@@ -444,12 +452,12 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
 
     <section class="section prices" id="precios" aria-labelledby="prices-title">
       <div class="section-heading"><div><span class="eyebrow">Información para tu estadía</span><h2 id="prices-title">Elige tu<br><em>experiencia.</em></h2></div><p class="section-intro">Precios por noche para dos personas. Selecciona cabaña, fechas y extras; te enviaremos la consulta lista por WhatsApp.</p></div>
-      <h3 class="prices-subtitle">Hospedaje y experiencias</h3>
+      <h3 class="prices-subtitle" id="paquetes">Hospedaje y experiencias</h3>
       <div class="prices-table-wrap"><table class="prices-table"><thead><tr><th>Paquete</th><th>Incluye para 2</th><th>Domingo a viernes</th><th>Sábado / feriado</th></tr></thead><tbody>
         <tr><th>Escapada</th><td>Hospedaje</td><td>$100</td><td>$160</td></tr><tr><th>Romance</th><td>Hospedaje, desayuno y decoración romántica</td><td>$135</td><td>$210</td></tr><tr><th>ZEN</th><td>Hospedaje, desayuno y masajes en pareja</td><td>$160</td><td>$230</td></tr><tr><th>SIGNATURE</th><td>Hospedaje, desayuno, cena, masajes y decoración</td><td>$230</td><td>$285</td></tr><tr><th>YUA WILD</th><td>Hospedaje + cuadrón por 1 hora</td><td>$130</td><td>$205</td></tr><tr><th>YUA ADRENALINE</th><td>Hospedaje + RZR por 1 hora</td><td>$185</td><td>$255</td></tr>
       </tbody></table></div>
       <p class="prices-note">Paquetes para dos personas. Cada vehículo admite dos personas que pueden turnarse para conducir. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, sujetas a horarios y disponibilidad.</p>
-      <h3 class="prices-subtitle">Personaliza tu reserva</h3><div class="prices-extras">
+      <h3 class="prices-subtitle" id="personaliza">Personaliza tu experiencia</h3><div class="prices-extras">
         <p><b>Decoración romántica · $50</b><span>Pétalos, globos, vino, ramo de rosas y letrero LED.</span></p><p><b>Decoración premium · $70</b><span>Incluye lo anterior y un corazón de pétalos con letrero LED.</span></p><p><b>Desayuno · $15 por pareja</b></p><p><b>Cena · $23,50 por pareja</b></p><p><b>Masaje relajante · $65 por pareja</b><span>Duración aproximada: 40–45 minutos.</span></p><p><b>Masaje adicional · $30 por persona</b></p><p><b>RZR · $85 por vehículo</b><span>Una hora · hasta dos personas.</span></p><p><b>Cuadrón · $35 por vehículo</b><span>Una hora · hasta dos personas.</span></p>
       </div>
       <p class="prices-note">Letreros LED: “Te amo”, “¿Quieres ser mi novia?”, “¿Quieres casarte conmigo?” y “Happy Birthday”. Los extras incluidos en un paquete no se cobran dos veces. Decoración romántica y premium son alternativas.</p>
