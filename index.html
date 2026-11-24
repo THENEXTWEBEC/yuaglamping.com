@@ -837,30 +837,17 @@ footer{background:#5a4433;color:#e6d8c7}
   </script>
 
 <script>
-(()=>{(()=> {
+(()=> {
   const form=document.querySelector('#quote-form');
   if(!form)return;
   const totalEl=document.querySelector('#quote-total');
   const breakdown=document.querySelector('#quote-breakdown');
   const title=document.querySelector('#quote-title');
   const whatsapp=document.querySelector('#whatsapp-quote');
-  const rates={
-    'Escapada':[100,160],
-    'Romance':[135,210],
-    'ZEN':[160,230],
-    'SIGNATURE':[230,285],
-    'YUA WILD':[130,205],
-    'YUA ADRENALINE':[185,255]
-  };
+  const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};
   const capacities={YUA:5,MISAKI:4,TULUM:2};
   const guestRates={Escapada:20,Romance:25,SIGNATURE:55};
-  const included={
-    Romance:['Desayuno','Decoración romántica'],
-    ZEN:['Desayuno','Masaje relajante'],
-    SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],
-    'YUA WILD':['Cuadrón'],
-    'YUA ADRENALINE':['RZR']
-  };
+  const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']};
   const money=n=>'$'+Number(n).toFixed(2).replace(/\.00$/,'').replace('.',',');
   const safe=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const row=(label,value,detail='')=>'<div class="quote-line"><span>'+safe(label)+(detail?'<small>'+safe(detail)+'</small>':'')+'</span><strong>'+safe(value)+'</strong></div>';
@@ -875,7 +862,7 @@ footer{background:#5a4433;color:#e6d8c7}
       return {name,price:Number(price)};
     });
     const selectedNames=selected.map(item=>item.name);
-    const lines=[],details=[];
+    const rows=[],details=[];
     let estimate=0,canQuote=false,invalid='';
     title.textContent=pkg+' · '+cabin;
     if(selectedNames.includes('Decoración romántica')&&selectedNames.includes('Decoración premium'))
@@ -884,9 +871,13 @@ footer{background:#5a4433;color:#e6d8c7}
       invalid='La cabaña '+cabin+' tiene capacidad máxima para '+capacities[cabin]+' personas.';
     if(!start||!end){
       const pair=rates[pkg]||[0,0];
-      lines.push('<p>Selecciona ingreso y salida para ver el desglose completo.</p>');
-      lines.push(row('Tarifa entre semana',money(pair[0])+' / noche','De domingo a viernes.'));
-      lines.push(row('Tarifa sábado o feriado',money(pair[1])+' / noche','Los feriados se confirman manualmente.'));
+      rows.push('<p>Selecciona ingreso y salida para ver el desglose completo.</p>');
+      rows.push(row('Tarifa entre semana',money(pair[0])+' / noche','De domingo a viernes.'));
+      rows.push(row('Tarifa sábado o feriado',money(pair[1])+' / noche','Los feriados se confirman manualmente.'));
+      for(const item of selected){
+        const isIncluded=(included[pkg]||[]).includes(item.name);
+        rows.push(row(item.name,isIncluded?'Incluido':money(item.price),isIncluded?'Ya forma parte del paquete.':'Cargo único por estadía.'));
+      }
       totalEl.textContent='—';
       details.push('Total estimado: A calcular con las fechas');
     }else{
@@ -902,76 +893,66 @@ footer{background:#5a4433;color:#e6d8c7}
           if(saturday)saturdays++;else weeknights++;
           night.setUTCDate(night.getUTCDate()+1);
         }
-        if(night<last) invalid=invalid||'Para estadías de 45 noches o más, solicita una cotización personalizada.';
+        if(night<last)invalid=invalid||'Para estadías de 45 noches o más, solicita una cotización personalizada.';
         const priceParts=[];
         if(weeknights)priceParts.push(weeknights+' × '+money(rates[pkg][0])+' entre semana');
         if(saturdays)priceParts.push(saturdays+' × '+money(rates[pkg][1])+' sábado/feriado');
-        lines.push(row('Hospedaje · '+nights+' '+(nights===1?'noche':'noches'),money(lodging),priceParts.join(' · ')));
+        rows.push(row('Hospedaje · '+nights+' '+(nights===1?'noche':'noches'),money(lodging),priceParts.join(' · ')));
         estimate=lodging;
         details.push('Noches: '+nights,'Desglose: Hospedaje '+money(lodging));
         if(extraGuests){
           const perGuest=guestRates[pkg];
           if(perGuest==null){
-            canQuote=false;
-            lines.push(row('Huéspedes adicionales','A confirmar',extraGuests+' persona(s) adicional(es); tarifa de este paquete por confirmar.'));
+            rows.push(row('Huéspedes adicionales','A confirmar',extraGuests+' persona(s) adicional(es); tarifa de este paquete por confirmar.'));
             details.push('Huéspedes adicionales: A confirmar');
           }else{
             const guestTotal=perGuest*extraGuests*nights;
             estimate+=guestTotal;
-            lines.push(row('Huéspedes adicionales',money(guestTotal),extraGuests+' × '+money(perGuest)+' por persona y noche × '+nights+' '+(nights===1?'noche':'noches')));
+            rows.push(row('Huéspedes adicionales',money(guestTotal),extraGuests+' × '+money(perGuest)+' por persona y noche × '+nights+' '+(nights===1?'noche':'noches')));
             details.push('Huéspedes adicionales: '+money(guestTotal));
           }
         }
         const includedNames=included[pkg]||[];
         for(const item of selected){
           if(includedNames.includes(item.name)){
-            lines.push(row(item.name,'Incluido','Ya forma parte del paquete.'));
+            rows.push(row(item.name,'Incluido','Ya forma parte del paquete.'));
           }else{
             estimate+=item.price;
-            lines.push(row(item.name,money(item.price),'Cargo único por estadía.'));
+            rows.push(row(item.name,money(item.price),'Cargo único por estadía.'));
           }
         }
-        if(!invalid)canQuote=extraGuests===0||guestRates[pkg]!=null;
+        canQuote=extraGuests===0||guestRates[pkg]!=null;
         if(nights>=45)canQuote=false;
         details.push('Extras: '+(selected.map(item=>item.name).join(', ')||'Ninguno'));
         details.push('Total estimado: '+(canQuote&&!invalid?money(estimate):'A confirmar por WhatsApp'));
-        if(invalid)lines.unshift('<p class="quote-alert">'+safe(invalid)+'</p>');
+        if(invalid)rows.unshift('<p class="quote-alert">'+safe(invalid)+'</p>');
         totalEl.textContent=canQuote&&!invalid?money(estimate)+' estimados':invalid?'Revisa los datos':'A confirmar';
       }
       if(invalid){
-        lines.length=0;
-        lines.push('<p class="quote-alert">'+safe(invalid)+'</p>');
+        rows.length=0;
+        rows.push('<p class="quote-alert">'+safe(invalid)+'</p>');
         totalEl.textContent='Revisa los datos';
         if(!details.some(line=>line.startsWith('Total estimado:')))details.push('Total estimado: A confirmar por WhatsApp');
       }
     }
     if(invalid&&!start&&!end){
-      lines.length=0;
-      lines.push('<p class="quote-alert">'+safe(invalid)+'</p>');
+      rows.length=0;
+      rows.push('<p class="quote-alert">'+safe(invalid)+'</p>');
       totalEl.textContent='Revisa los datos';
     }
-    breakdown.innerHTML=lines.join('');
+    breakdown.innerHTML=rows.join('');
     const name=String(data.get('name')||'').trim();
     const comments=String(data.get('comments')||'').trim();
-    const message=[
-      'Hola'+(name?', soy '+name:'')+'. Quiero cotizar una estadía en YUA Glamping.',
-      '',
-      'Cabaña: '+cabin,
-      'Ingreso: '+(start||'por definir'),
-      'Salida: '+(end||'por definir'),
-      'Personas: '+guests,
-      'Paquete: '+pkg,
-      ...details,
-      ...(comments?['','Preguntas o comentarios: '+comments]:[]),
-      '',
-      '¿Me ayudan a confirmar disponibilidad y el precio final?'
-    ];
+    const message=['Hola'+(name?', soy '+name:'')+'. Quiero cotizar una estadía en YUA Glamping.','','Cabaña: '+cabin,'Ingreso: '+(start||'por definir'),'Salida: '+(end||'por definir'),'Personas: '+guests,'Paquete: '+pkg,...details];
+    if(comments)message.push('','Preguntas o comentarios: '+comments);
+    message.push('','¿Me ayudan a confirmar disponibilidad y el precio final?');
     whatsapp.href='https://wa.me/593963315303?text='+encodeURIComponent(message.join('\n'));
   };
   form.addEventListener('input',update);
   form.addEventListener('change',update);
   update();
-})();</script>
+})();
+</script>
 
 <script>
 document.querySelectorAll('.package-choose').forEach(button => {
