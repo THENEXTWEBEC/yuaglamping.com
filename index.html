@@ -306,6 +306,80 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     .quote-box{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;padding:clamp(22px,5vw,50px);background:#eee9df;color:#292d25}.quote-box h3{grid-column:1/-1;font:400 clamp(34px,4vw,52px)/1 var(--serif);margin:0}.quote-form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.quote-form label{display:grid;gap:7px;font-size:11px;letter-spacing:.04em}.quote-form input,.quote-form select{width:100%;padding:12px;border:1px solid #c7c2b7;background:#fff;color:#292d25;font:inherit}.quote-form .quote-full{grid-column:1/-1}.quote-form select[multiple]{min-height:118px}.quote-form small{font-size:10px;color:#77766b;line-height:1.5}.quote-summary{display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:#d9ddcf}.quote-summary p{font-size:13px;line-height:1.65}.quote-total{display:block;font:400 33px var(--serif);margin:18px 0}.quote-foot{color:#62665b;font-size:11px!important}.quote-summary .button{align-self:flex-start;background:#273027;color:white}
     @media(max-width:700px){.prices-extras{grid-template-columns:1fr}.quote-box{grid-template-columns:1fr;margin-left:-20px;margin-right:-20px;padding:24px 20px}.quote-box h3{grid-column:auto}.quote-form{grid-template-columns:1fr}.quote-form .quote-full{grid-column:auto}.prices-table{min-width:580px}}
 
+  
+/* Paleta beige solicitada: arena, piedra cálida y café */
+:root{
+  --beige:#f1e8d9;--cement:#e2d5c1;--terracotta:#986447;--olive:#80634c;
+  --coffee:#493629;--ink:#382b21;--muted:#6f6255;--line:rgba(73,54,41,.2)
+}
+body{background:var(--beige);color:var(--ink)}
+.site-header{border-color:rgba(241,232,217,.52);color:#f1e8d9}
+.site-header .nav .button,.nav .button{background:#e9dcc8;color:#382b21}
+.menu-toggle{color:inherit;border-color:rgba(241,232,217,.7)}
+.button{background:#986447;color:#f3eadc}
+.button:hover{background:#805239}
+.button--light{background:#e9dcc8;color:#382b21}
+.button--light:hover{background:#d9c7ad;color:#382b21}
+.hero{background:#493629}
+.hero-content{color:#f3eadc}
+.hero-copy,.hero-location{color:rgba(243,234,220,.94)}
+.hero-note{color:#f3eadc}
+.hero::after{background:linear-gradient(90deg,rgba(42,29,20,.75),rgba(54,38,27,.48) 48%,rgba(54,38,27,.08))}
+.hero-content,.hero-note,.site-header{text-shadow:0 1px 12px rgba(35,24,17,.48)}
+.manifesto{background:#eee3d2;color:#382b21}
+.manifesto-number,.manifesto-copy p{color:#6f6255}
+.manifesto-photo:before{border-color:#b9a58c}
+#cabanas,.prices{background:#e7dbc8;color:#382b21}
+#cabanas .eyebrow,.prices .eyebrow{color:#80634c}
+#cabanas .section-intro,.prices .section-intro,.prices-note{color:#6f6255}
+.cabin,.cabin:nth-child(even){background:#d8c7ae;color:#382b21}
+.cabin-image,.cabin:nth-child(n) .cabin-image{background:#cbb79b}
+.cabin-kicker,.cabin-link{color:#80563d}
+.cabin p,.cabin:nth-child(n) p{color:#625447}
+.cabin-link{border-color:#987252}
+.cabin-link:hover{color:#493629}
+.cabin-number{border-color:rgba(241,232,217,.8);color:#f3eadc}
+.pending-photo{background:linear-gradient(145deg,#a88e70,#6e5540);color:#f3eadc}
+.pending-photo p{color:#f3eadc}
+.misaki-gallery,.tulum-gallery,.yua-gallery{background:#eee3d2;color:#382b21}
+.experience{background:#f1e8d9}
+.experience-panel{background:#dfd0bb;color:#382b21}
+.experience-copy .eyebrow,.value-mark{color:#80634c}
+.experience-copy p{color:#625447}
+.experience-image{background:#b9a187}
+.experience-media{background:#eee3d2;color:#382b21}
+.experience-video-showcase{background:#dfd0bb;color:#382b21}
+.experience-video-heading .eyebrow,.experience-video-card figcaption span{color:#80563d}
+.experience-video-heading p,.experience-video-note{color:#625447}
+.experience-video-card,.experience-video-card video{background:#493629}
+.experience-video-card figcaption{color:#f3eadc}
+.prices-table th,.prices-table td{border-color:rgba(73,54,41,.2);color:#382b21}
+.prices-table thead th{color:#80563d}
+.prices-extras p{border-color:rgba(73,54,41,.2)}
+.prices-extras span{color:#625447}
+.quote-box{background:#d8c7ae;color:#382b21}
+.quote-form input,.quote-form select{border-color:#bba88f;background:#eee3d2;color:#382b21}
+.quote-form small,.quote-foot{color:#625447}
+.quote-summary{background:#eee3d2;color:#382b21}
+.quote-summary .button,.detail-reserve{background:#986447;color:#f3eadc}
+.quote-summary .button:hover,.detail-reserve:hover{background:#805239}
+.booking-box{background:#493629;color:#f3eadc}
+.booking-box .eyebrow{color:#d8b995}
+.booking-box p{color:#e6d8c7}
+.booking-box .button{background:#e9dcc8;color:#382b21}
+.booking-box .button:hover{background:#d9c7ad;color:#382b21}
+footer{background:#5a4433;color:#e6d8c7}
+.footer-brand{color:#f3eadc}
+.arrow-link:hover,.gallery-open:hover{background:#493629;color:#f3eadc}
+@media(max-width:640px){
+ .site-header{color:#f3eadc}
+ .nav{color:#382b21;background:#eee3d2}
+ .nav .button{background:#986447;color:#f3eadc}
+ #cabanas{background:#e7dbc8}
+ .cabin,.cabin:nth-child(even){background:#d8c7ae;color:#382b21}
+ .experience-video-showcase{background:#dfd0bb}
+}
+
   </style>
 </head>
 <body>
