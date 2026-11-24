@@ -589,7 +589,7 @@ footer{background:#5a4433;color:#e6d8c7}
 <label class="extra-choice"><input type="checkbox" name="extras" value="Cuadrón|35"><span>Cuadrón<small>$35 por vehículo</small></span></label></div></fieldset>
       <label class="quote-full">Preguntas o comentarios <span class="quote-optional">Opcional</span><textarea name="comments" rows="4"></textarea></label>
     </form>
-    <div class="quote-summary"><div><span class="quote-summary-label">Tu estadía</span><h4>Un momento para ti.</h4><p id="quote-breakdown" aria-live="polite">Elige fechas de ingreso y salida para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El precio final y la reserva se confirman por WhatsApp.</p></div><button class="button availability-button" id="check-availability" type="button">Consultar disponibilidad</button><p class="availability-status" id="availability-status" role="status"></p><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <svg class="icon-arrow" width="1em" height="1em" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    <div class="quote-summary"><div><span class="quote-summary-label">Tu estadía</span><h4>Un momento para ti.</h4><p id="quote-breakdown" aria-live="polite">Elige fechas de ingreso y salida para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El precio final y la reserva se confirman por WhatsApp.</p></div><button class="button availability-button" id="check-availability" type="button">Consultar disponibilidad</button><p class="availability-status" id="availability-status" role="status"></p><button class="button online-reservation" id="book-online" type="button" hidden>Reservar en línea</button><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <svg class="icon-arrow" width="1em" height="1em" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
   </div>
   <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
 </section>
@@ -836,17 +836,20 @@ document.querySelectorAll('.package-choose').forEach(button => {
   });
 });
 </script>
+<script src="https://yua-glamping-admin-439z.onrender.com/booking-widget.js" defer></script>
 <script>
 
 (() => {
   const form = document.querySelector('#quote-form');
   const button = document.querySelector('#check-availability');
   const status = document.querySelector('#availability-status');
+  const bookOnline = document.querySelector('#book-online');
   const { cabin, checkin, checkout, guests } = form.elements;
   const base = 'https://yua-glamping-admin-439z.onrender.com/api/public';
   const capacities = { YUA: 5, MISAKI: 4, TULUM: 2 };
   let request;
   let cabins;
+  let bookingEnabled = false;
   const dateFormat = new Intl.DateTimeFormat('en-CA', {timeZone: 'America/Guayaquil'});
   function today() {
     const parts = Object.fromEntries(dateFormat.formatToParts().map(({type, value}) => [type, value]));
@@ -869,6 +872,7 @@ document.querySelectorAll('.package-choose').forEach(button => {
     request = undefined;
     button.disabled = false;
     status.textContent = '';
+    bookOnline.hidden = true;
     updateFields();
   }
   async function read(path, options) {
@@ -892,6 +896,7 @@ document.querySelectorAll('.package-choose').forEach(button => {
         const config = await read('/config', { signal: current.signal, cache: 'no-store' });
         if (request !== current) return;
         cabins = config.cabins;
+        bookingEnabled = config.bookingEnabled === true;
       }
       const selected = cabins.find(item => item.name.trim().toUpperCase() === cabin.value);
       if (!selected) {
@@ -905,8 +910,9 @@ document.querySelectorAll('.package-choose').forEach(button => {
       });
       if (request !== current) return;
       if (typeof result.available !== 'boolean') throw new Error('Invalid availability');
+      bookOnline.hidden = !(result.available && bookingEnabled && window.YUABooking?.open);
       status.textContent = result.available
-        ? 'Fechas disponibles en el calendario. Confirma tu estadía por WhatsApp.'
+        ? bookingEnabled && !bookOnline.hidden ? 'Fechas disponibles. Completa tu reserva en línea o consulta por WhatsApp.' : 'Fechas disponibles en el calendario. Confirma tu estadía por WhatsApp.'
         : 'Estas fechas no están disponibles. Prueba con otras fechas o elige otra cabaña.';
     } catch {
       if (request !== current) return;
@@ -922,6 +928,18 @@ document.querySelectorAll('.package-choose').forEach(button => {
   }
   [cabin, checkin, checkout].forEach(field => field.addEventListener('input', resetAvailability));
   [cabin, checkin, checkout].forEach(field => field.addEventListener('change', resetAvailability));
+  bookOnline.addEventListener('click', () => {
+    if (bookOnline.hidden || !window.YUABooking?.open) return;
+    const selected = cabins?.find(item => item.name.trim().toUpperCase() === cabin.value);
+    if (!selected) return;
+    const values = new FormData(form);
+    window.YUABooking.open({
+      cabinId: selected.id, arrival: checkin.value, departure: checkout.value,
+      guests: guests.value, packageName: values.get('package'),
+      name: String(values.get('name') || ''),
+      extras: [...form.querySelectorAll('input[name="extras"]:checked')].map(input => input.value.split('|')[0])
+    });
+  });
   button.addEventListener('click', checkAvailability);
   form.addEventListener('submit', event => {
     event.preventDefault();
