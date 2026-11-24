@@ -382,7 +382,50 @@ footer{background:#5a4433;color:#e6d8c7}
  .experience-video-showcase{background:#dfd0bb}
 }
 
-  </style>
+  
+/* Paquetes YUA — editorial cálido y cotización clara */
+.packages-redesign{background:#e7dbc8;color:#382b21;padding-top:clamp(82px,9vw,132px);padding-bottom:clamp(80px,9vw,128px)}
+.packages-redesign .eyebrow{color:#80634c}
+.package-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:end;margin-bottom:42px}
+.package-intro h2{font:400 clamp(52px,7vw,94px)/.96 var(--serif);letter-spacing:-.05em;margin:17px 0 0}
+.package-intro h2 em{color:#986447;font-weight:400}
+.package-intro p{max-width:370px;margin:0 0 7px;color:#6f6255;font-size:14px;line-height:1.8}
+.package-visual{position:relative;min-height:300px;margin-bottom:46px;overflow:hidden;background:#8e765f url('assets/experience/experience-01-1365.webp') center 44%/cover no-repeat}
+.package-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(41,31,23,.64),rgba(41,31,23,.08) 75%)}
+.package-visual-copy{position:absolute;left:clamp(24px,5vw,66px);bottom:clamp(25px,4vw,50px);max-width:420px;color:#f3eadc}
+.package-visual-copy span{font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.package-visual-copy p{margin:12px 0 0;font:400 clamp(30px,4.3vw,55px)/1.04 var(--serif)}
+.package-visual-copy em{font-weight:400}
+.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.package-option{min-height:245px;display:flex;flex-direction:column;padding:25px 24px 22px;background:#f0e7d9;border:1px solid #d3c4ad}
+.package-option--featured{background:#493629;color:#f3eadc;border-color:#493629}
+.package-option-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.package-option-top span:first-child{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#80563d}
+.package-option--featured .package-option-top span:first-child{color:#d8b995}
+.package-option-top span:last-child{font-size:10px;color:#756858}
+.package-option--featured .package-option-top span:last-child{color:#d8c7ae}
+.package-option h3{margin:25px 0 9px;font:400 30px/1 var(--serif)}
+.package-option p{margin:0;color:#6f6255;font-size:12px;line-height:1.65}
+.package-option--featured p{color:#e0d4c2}
+.package-option-prices{display:flex;justify-content:space-between;gap:12px;margin-top:auto;padding-top:24px}
+.package-option-prices div{display:grid;gap:4px}
+.package-option-prices small{color:#786a5b;font-size:9px;letter-spacing:.06em;text-transform:uppercase}
+.package-option-prices strong{font:400 25px/1 var(--serif);color:#382b21}
+.package-option--featured .package-option-prices small{color:#d8c7ae}
+.package-option--featured .package-option-prices strong{color:#f3eadc}
+.package-caption{margin:15px 0 0;color:#6f6255;font-size:11px;line-height:1.7}
+.packages-redesign .prices-subtitle{color:#382b21}
+.packages-redesign .prices-note{color:#6f6255}
+.packages-redesign .prices-extras{gap:0 34px}
+.packages-redesign .prices-extras p{border-color:#cdbda6;color:#493629}
+.packages-redesign .prices-extras span{color:#6f6255}
+.packages-redesign .quote-box{background:#d8c7ae;box-shadow:0 18px 45px rgba(73,54,41,.08)}
+.packages-redesign .quote-form input,.packages-redesign .quote-form select{background:#f1e8d9;border-color:#bba88f}
+.packages-redesign .quote-summary{background:#eee3d2}
+.packages-redesign .quote-summary .button{background:#986447}
+@media(max-width:800px){.package-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.package-option{min-height:230px}.package-intro{grid-template-columns:1fr 1fr;gap:22px}}
+@media(max-width:600px){.packages-redesign{padding:74px 20px}.package-intro{display:block;margin-bottom:28px}.package-intro h2{font-size:58px}.package-intro p{margin-top:16px}.package-visual{min-height:280px;margin:0 -20px 30px}.package-visual-copy{left:22px;right:22px;bottom:24px}.package-grid{grid-template-columns:1fr;gap:10px}.package-option{min-height:0;padding:22px}.package-option h3{margin:18px 0 8px}.package-option-prices{padding-top:20px}.packages-redesign .prices-subtitle{margin-top:38px}.packages-redesign .quote-box{margin-left:0;margin-right:0;padding:23px 18px}.package-caption{font-size:10px}}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -527,18 +570,24 @@ footer{background:#5a4433;color:#e6d8c7}
       </div>
     </section>
 
-    <section class="section prices" id="precios" aria-labelledby="prices-title">
-      <div class="section-heading"><div><span class="eyebrow">Información para tu estadía</span><h2 id="prices-title">Elige tu<br><em>experiencia.</em></h2></div><p class="section-intro">Precios por noche para dos personas. Selecciona cabaña, fechas y extras; te enviaremos la consulta lista por WhatsApp.</p></div>
-      <h3 class="prices-subtitle" id="paquetes">Hospedaje y experiencias</h3>
-      <div class="prices-table-wrap"><table class="prices-table"><thead><tr><th>Paquete</th><th>Incluye para 2</th><th>Domingo a viernes</th><th>Sábado / feriado</th></tr></thead><tbody>
-        <tr><th>Escapada</th><td>Hospedaje</td><td>$100</td><td>$160</td></tr><tr><th>Romance</th><td>Hospedaje, desayuno y decoración romántica</td><td>$135</td><td>$210</td></tr><tr><th>ZEN</th><td>Hospedaje, desayuno y masajes en pareja</td><td>$160</td><td>$230</td></tr><tr><th>SIGNATURE</th><td>Hospedaje, desayuno, cena, masajes y decoración</td><td>$230</td><td>$285</td></tr><tr><th>YUA WILD</th><td>Hospedaje + cuadrón por 1 hora</td><td>$130</td><td>$205</td></tr><tr><th>YUA ADRENALINE</th><td>Hospedaje + RZR por 1 hora</td><td>$185</td><td>$255</td></tr>
-      </tbody></table></div>
-      <p class="prices-note">Paquetes para dos personas. Cada vehículo admite dos personas que pueden turnarse para conducir. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, sujetas a horarios y disponibilidad.</p>
-      <h3 class="prices-subtitle" id="personaliza">Personaliza tu experiencia</h3><div class="prices-extras">
-        <p><b>Decoración romántica · $50</b><span>Pétalos, globos, vino, ramo de rosas y letrero LED.</span></p><p><b>Decoración premium · $70</b><span>Incluye lo anterior y un corazón de pétalos con letrero LED.</span></p><p><b>Desayuno · $15 por pareja</b></p><p><b>Cena · $23,50 por pareja</b></p><p><b>Masaje relajante · $65 por pareja</b><span>Duración aproximada: 40–45 minutos.</span></p><p><b>Masaje adicional · $30 por persona</b></p><p><b>RZR · $85 por vehículo</b><span>Una hora · hasta dos personas.</span></p><p><b>Cuadrón · $35 por vehículo</b><span>Una hora · hasta dos personas.</span></p>
-      </div>
-      <p class="prices-note">Letreros LED: “Te amo”, “¿Quieres ser mi novia?”, “¿Quieres casarte conmigo?” y “Happy Birthday”. Los extras incluidos en un paquete no se cobran dos veces. Decoración romántica y premium son alternativas.</p>
-      <div class="quote-box" id="reservas"><h3>Consulta tu estadía</h3>
+    <section class="section prices packages-redesign" id="paquetes" aria-labelledby="prices-title">
+  <div class="package-intro"><div><span class="eyebrow">Una estadía a tu manera</span><h2 id="prices-title">Elige cómo<br><em>vivir YUA.</em></h2></div><p>Escapadas para compartir, celebrar o desconectar. Elige el paquete que se siente más tuyo y consulta tus fechas.</p></div>
+  <div class="package-visual" role="img" aria-label="Detalles de una estadía en YUA Glamping"><div class="package-visual-copy"><span>Tu próximo recuerdo</span><p>Un lugar para volver <em>a ti.</em></p></div></div>
+  <div class="package-grid" aria-label="Paquetes y precios de YUA">
+    <article class="package-option"><div class="package-option-top"><span>01 / Esencial</span><span>Para dos</span></div><h3>Escapada</h3><p>Hospedaje para disfrutar YUA a tu propio ritmo.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$100</strong></div><div><small>Sáb. / feriado</small><strong>$160</strong></div></div></article>
+    <article class="package-option package-option--featured"><div class="package-option-top"><span>02 / Para celebrar</span><span>Para dos</span></div><h3>Romance</h3><p>Hospedaje, desayuno y decoración romántica.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$135</strong></div><div><small>Sáb. / feriado</small><strong>$210</strong></div></div></article>
+    <article class="package-option"><div class="package-option-top"><span>03 / Bienestar</span><span>Para dos</span></div><h3>ZEN</h3><p>Hospedaje, desayuno y masajes en pareja.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$160</strong></div><div><small>Sáb. / feriado</small><strong>$230</strong></div></div></article>
+    <article class="package-option"><div class="package-option-top"><span>04 / Especial</span><span>Para dos</span></div><h3>SIGNATURE</h3><p>Hospedaje, desayuno, cena, masajes y decoración.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$230</strong></div><div><small>Sáb. / feriado</small><strong>$285</strong></div></div></article>
+    <article class="package-option"><div class="package-option-top"><span>05 / Aventura</span><span>Para dos</span></div><h3>YUA WILD</h3><p>Hospedaje y una hora de cuadrón.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$130</strong></div><div><small>Sáb. / feriado</small><strong>$205</strong></div></div></article>
+    <article class="package-option"><div class="package-option-top"><span>06 / Adrenalina</span><span>Para dos</span></div><h3>YUA ADRENALINE</h3><p>Hospedaje y una hora de RZR.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$185</strong></div><div><small>Sáb. / feriado</small><strong>$255</strong></div></div></article>
+  </div>
+  <p class="package-caption">Precios por noche para dos personas. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, y están sujetas a horarios y disponibilidad.</p>
+  <h3 class="prices-subtitle" id="personaliza">Personaliza tu experiencia</h3>
+  <div class="prices-extras">
+    <p><b>Decoración romántica · $50</b><span>Pétalos, globos, vino, ramo de rosas y letrero LED.</span></p><p><b>Decoración premium · $70</b><span>Incluye lo anterior y un corazón de pétalos con letrero LED.</span></p><p><b>Desayuno · $15 por pareja</b></p><p><b>Cena · $23,50 por pareja</b></p><p><b>Masaje relajante · $65 por pareja</b><span>Duración aproximada: 40–45 minutos.</span></p><p><b>Masaje adicional · $30 por persona</b></p><p><b>RZR · $85 por vehículo</b><span>Una hora · hasta dos personas.</span></p><p><b>Cuadrón · $35 por vehículo</b><span>Una hora · hasta dos personas.</span></p>
+  </div>
+  <p class="prices-note">Letreros LED: “Te amo”, “¿Quieres ser mi novia?”, “¿Quieres casarte conmigo?” y “Happy Birthday”. Los extras incluidos en un paquete no se cobran dos veces. Decoración romántica y premium son alternativas.</p>
+  <div class="quote-box" id="reservas"><h3>Consulta tu estadía</h3>
         <form class="quote-form" id="quote-form">
           <label>Tu nombre<input name="name" autocomplete="given-name" placeholder="Nombre" required></label><label>Cabaña<select name="cabin"><option>YUA</option><option>TULUM</option><option>MISAKI</option></select></label>
           <label>Ingreso<input name="checkin" type="date" required></label><label>Salida<input name="checkout" type="date" required></label>
@@ -548,8 +597,8 @@ footer{background:#5a4433;color:#e6d8c7}
         </form>
         <div class="quote-summary"><div><p id="quote-breakdown">Elige tus fechas para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El estimado es referencial. La solicitud no bloquea fechas; el equipo confirmará disponibilidad y precio por WhatsApp.</p></div><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a></div>
       </div>
-      <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
-    </section>
+  <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
+</section>
 
     <section class="section booking" id="reservas"><div class="booking-box"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>Escríbenos para consultar fechas, cabañas y disponibilidad de la experiencia entre rosas.</p></div><a class="button button--light" href="https://wa.me/593963315303">WhatsApp · +593 96 331 5303 <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
   </main>
