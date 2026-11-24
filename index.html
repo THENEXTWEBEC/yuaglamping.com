@@ -461,6 +461,32 @@ footer{background:#5a4433;color:#e6d8c7}
  .package-option{min-height:136px;padding:17px}
  .package-option h3{font-size:26px}
 }
+
+/* Experiencias: fotografía, profundidad y selección directa */
+.packages-redesign .package-visual { min-height:clamp(150px,20vw,260px); margin-bottom:24px; }
+.packages-redesign .package-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px; }
+.packages-redesign .package-option { display:flex;flex-direction:column;min-height:0;padding:0;overflow:hidden;background:#f0e7d9;color:#382b21;border:1px solid #d3c4ad;transition:transform .35s,box-shadow .35s; }
+.packages-redesign .package-option:hover,.packages-redesign .package-option:focus-within { transform:translateY(-5px);box-shadow:0 18px 35px rgba(65,43,28,.14); }
+.package-photo { overflow:hidden; aspect-ratio: 16 / 9; background:#c6b39c; }
+.package-photo img { width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.25,1); }
+.package-option:hover .package-photo img,.package-option:focus-within .package-photo img { transform:scale(1.055); }
+.package-content { flex:1;display:flex;flex-direction:column;padding:23px; }
+.packages-redesign .package-option-top span:first-child {color:#80563d;font-size:10px;}
+.packages-redesign .package-option-top span:last-child {color:#756858;font-size:11px;}
+.packages-redesign .package-option h3 { margin:20px 0 9px;font-size:clamp(27px,2.4vw,34px); }
+.packages-redesign .package-option p { color:#6f6255;font-size:14px;line-height:1.55;min-height:3.1em; }
+.packages-redesign .package-option-prices { margin-top:auto;padding-top:22px; }
+.packages-redesign .package-option-prices small {color:#786a5b;font-size:10px;}
+.packages-redesign .package-option-prices strong {color:#382b21;font-size:25px;}
+.package-choose { display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:22px;padding:14px 0 4px;border:0;border-top:1px solid #cbbba5;background:transparent;color:#493629;text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer; }
+.package-choose span {font-size:20px;transition:transform .25s;}
+.package-choose:hover span,.package-choose:focus-visible span {transform:translate(4px,-4px);}
+.package-choose:focus-visible {outline:2px solid #80563d;outline-offset:5px;}
+.packages-redesign .package-caption {font-size:12px;line-height:1.6;margin-top:18px;}
+@media(max-width:800px){.packages-redesign .package-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.packages-redesign .package-grid{grid-template-columns:1fr;gap:18px}.packages-redesign .package-visual{min-height:200px;margin-bottom:24px}.package-photo{aspect-ratio:16/9}.package-content{padding:21px}.packages-redesign .package-option p{min-height:0}.packages-redesign .package-option h3{margin-top:16px}.packages-redesign .package-option-prices{padding-top:18px}}
+@media(prefers-reduced-motion:reduce){.package-option,.package-photo img,.package-choose span{transition:none!important}.packages-redesign .package-option:hover,.packages-redesign .package-option:focus-within,.package-option:hover .package-photo img,.package-option:focus-within .package-photo img{transform:none}}
+
 </style>
 </head>
 <body>
@@ -610,12 +636,12 @@ footer{background:#5a4433;color:#e6d8c7}
   <div class="package-intro"><div><span class="eyebrow">Una estadía a tu manera</span><h2 id="prices-title">Elige cómo<br><em>vivir YUA.</em></h2></div><p>Escapadas para compartir, celebrar o desconectar. Elige el paquete que se siente más tuyo y consulta tus fechas.</p></div>
   <div class="package-visual" role="img" aria-label="Detalles de una estadía en YUA Glamping"><div class="package-visual-copy"><span>Tu próximo recuerdo</span><p>Un lugar para volver <em>a ti.</em></p></div></div>
   <div class="package-grid" aria-label="Paquetes y precios de YUA">
-    <article class="package-option"><div class="package-option-top"><span>01 / Esencial</span><span>Para dos</span></div><h3>Escapada</h3><p>Hospedaje para disfrutar YUA a tu propio ritmo.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$100</strong></div><div><small>Sáb. / feriado</small><strong>$160</strong></div></div></article>
-    <article class="package-option package-option--featured"><div class="package-option-top"><span>02 / Para celebrar</span><span>Para dos</span></div><h3>Romance</h3><p>Hospedaje, desayuno y decoración romántica.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$135</strong></div><div><small>Sáb. / feriado</small><strong>$210</strong></div></div></article>
-    <article class="package-option"><div class="package-option-top"><span>03 / Bienestar</span><span>Para dos</span></div><h3>ZEN</h3><p>Hospedaje, desayuno y masajes en pareja.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$160</strong></div><div><small>Sáb. / feriado</small><strong>$230</strong></div></div></article>
-    <article class="package-option"><div class="package-option-top"><span>04 / Especial</span><span>Para dos</span></div><h3>SIGNATURE</h3><p>Hospedaje, desayuno, cena, masajes y decoración.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$230</strong></div><div><small>Sáb. / feriado</small><strong>$285</strong></div></div></article>
-    <article class="package-option"><div class="package-option-top"><span>05 / Aventura</span><span>Para dos</span></div><h3>YUA WILD</h3><p>Hospedaje y una hora de cuadrón.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$130</strong></div><div><small>Sáb. / feriado</small><strong>$205</strong></div></div></article>
-    <article class="package-option"><div class="package-option-top"><span>06 / Adrenalina</span><span>Para dos</span></div><h3>YUA ADRENALINE</h3><p>Hospedaje y una hora de RZR.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$185</strong></div><div><small>Sáb. / feriado</small><strong>$255</strong></div></div></article>
+    <article class="package-option"><div class="package-photo"><img src="assets/yua/exterior-yua-1012.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>01 / Esencial</span><span>Para dos</span></div><h3>Escapada</h3><p>Hospedaje para disfrutar YUA a tu propio ritmo.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$100</strong></div><div><small>Sáb. / feriado</small><strong>$160</strong></div></div><button class="package-choose" type="button" data-package="Escapada">Elegir Escapada <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option package-option--featured"><div class="package-photo"><img src="assets/experience/experience-02-900.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>02 / Para celebrar</span><span>Para dos</span></div><h3>Romance</h3><p>Hospedaje, desayuno y decoración romántica.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$135</strong></div><div><small>Sáb. / feriado</small><strong>$210</strong></div></div><button class="package-choose" type="button" data-package="Romance">Elegir Romance <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo"><img src="assets/misaki/misaki-tina-interior-1029.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>03 / Bienestar</span><span>Para dos</span></div><h3>ZEN</h3><p>Hospedaje, desayuno y masajes en pareja.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$160</strong></div><div><small>Sáb. / feriado</small><strong>$230</strong></div></div><button class="package-choose" type="button" data-package="ZEN">Elegir ZEN <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo"><img src="assets/experience/experience-04-900.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>04 / Especial</span><span>Para dos</span></div><h3>SIGNATURE</h3><p>Hospedaje, desayuno, cena, masajes y decoración.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$230</strong></div><div><small>Sáb. / feriado</small><strong>$285</strong></div></div><button class="package-choose" type="button" data-package="SIGNATURE">Elegir SIGNATURE <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo"><img src="assets/experience/experience-05-900.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>05 / Aventura</span><span>Para dos</span></div><h3>YUA WILD</h3><p>Hospedaje y una hora de cuadrón.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$130</strong></div><div><small>Sáb. / feriado</small><strong>$205</strong></div></div><button class="package-choose" type="button" data-package="YUA WILD">Elegir YUA WILD <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo"><img src="assets/experience/experience-07-900.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>06 / Adrenalina</span><span>Para dos</span></div><h3>YUA ADRENALINE</h3><p>Hospedaje y una hora de RZR.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$185</strong></div><div><small>Sáb. / feriado</small><strong>$255</strong></div></div><button class="package-choose" type="button" data-package="YUA ADRENALINE">Elegir YUA ADRENALINE <span aria-hidden="true">↗</span></button></div></article>
   </div>
   <p class="package-caption">Precios por noche para dos personas. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, y están sujetas a horarios y disponibilidad.</p>
   <h3 class="prices-subtitle" id="personaliza">Personaliza tu experiencia</h3>
@@ -771,5 +797,17 @@ footer{background:#5a4433;color:#e6d8c7}
 (()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'$'+n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.elements.extras.selectedOptions].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola, soy '+(d.get('name')||'')+'. Quiero consultar una reserva en YUA Glamping.\n\nCabaña: '+cabin+'\nIngreso: '+(start||'por definir')+'\nSalida: '+(end||'por definir')+'\nPersonas: '+guests+'\nPaquete: '+pkg+'\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+'\n\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
 </script>
 
+<script>
+document.querySelectorAll('.package-choose').forEach(button => {
+  button.addEventListener('click', () => {
+    const select = document.querySelector('#quote-form select[name="package"]');
+    select.value = button.dataset.package;
+    select.dispatchEvent(new Event('change', {bubbles:true}));
+    document.querySelector('#reservas').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+    select.focus({preventScroll:true});
+  });
+});
+</script>
 </body>
 </html>
+
