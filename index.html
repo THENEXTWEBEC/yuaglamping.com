@@ -499,6 +499,13 @@ footer{background:#5a4433;color:#e6d8c7}
 @media(max-width:360px){.extras-grid{grid-template-columns:1fr}}
 
 </style>
+<style>
+    .availability-button { background: transparent; color: #382b21; border: 1px solid #8a6f58; }
+    .availability-button:hover { background: #e1d1bd; }
+    .availability-button:disabled { opacity: .65; cursor: wait; transform: none; }
+    .availability-status { margin: 8px 0 14px; }
+    .availability-status:empty { margin: 0 0 10px; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -648,11 +655,11 @@ footer{background:#5a4433;color:#e6d8c7}
   <div class="package-visual" role="img" aria-label="Detalles de una estadía en YUA Glamping"><div class="package-visual-copy"><span>Tu próximo recuerdo</span><p>Un lugar para volver <em>a ti.</em></p></div></div>
   <div class="package-grid" aria-label="Paquetes y precios de YUA">
     <article class="package-option"><div class="package-photo"><img src="assets/yua/exterior-yua-1012.webp" alt="" loading="lazy" decoding="async"></div><div class="package-content"><div class="package-option-top"><span>01 / Esencial</span><span>Para dos</span></div><h3>Escapada</h3><p>Hospedaje para disfrutar YUA a tu propio ritmo.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$100</strong></div><div><small>Sáb. / feriado</small><strong>$160</strong></div></div><button class="package-choose" type="button" data-package="Escapada">Elegir Escapada <span aria-hidden="true">↗</span></button></div></article>
-    <article class="package-option package-option--featured"><div class="package-photo package-photo--illustration package-photo--romance" role="img" aria-label="Desayuno y decoración romántica, imagen ilustrativa"></div><div class="package-content"><div class="package-option-top"><span>02 / Para celebrar</span><span>Para dos</span></div><h3>Romance</h3><p>Hospedaje, desayuno y decoración romántica.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$135</strong></div><div><small>Sáb. / feriado</small><strong>$210</strong></div></div><button class="package-choose" type="button" data-package="Romance">Elegir Romance <span aria-hidden="true">↗</span></button></div></article>
-    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--zen" role="img" aria-label="Masaje en pareja, imagen ilustrativa"></div><div class="package-content"><div class="package-option-top"><span>03 / Bienestar</span><span>Para dos</span></div><h3>ZEN</h3><p>Hospedaje, desayuno y masajes en pareja.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$160</strong></div><div><small>Sáb. / feriado</small><strong>$230</strong></div></div><button class="package-choose" type="button" data-package="ZEN">Elegir ZEN <span aria-hidden="true">↗</span></button></div></article>
-    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--romance" role="img" aria-label="Desayuno y decoración romántica, imagen ilustrativa"></div><div class="package-content"><div class="package-option-top"><span>04 / Especial</span><span>Para dos</span></div><h3>SIGNATURE</h3><p>Hospedaje, desayuno, cena, masajes y decoración.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$230</strong></div><div><small>Sáb. / feriado</small><strong>$285</strong></div></div><button class="package-choose" type="button" data-package="SIGNATURE">Elegir SIGNATURE <span aria-hidden="true">↗</span></button></div></article>
-    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--wild" role="img" aria-label="Cuadrón en un paisaje andino, imagen ilustrativa"></div><div class="package-content"><div class="package-option-top"><span>05 / Aventura</span><span>Para dos</span></div><h3>YUA WILD</h3><p>Hospedaje y una hora de cuadrón.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$130</strong></div><div><small>Sáb. / feriado</small><strong>$205</strong></div></div><button class="package-choose" type="button" data-package="YUA WILD">Elegir YUA WILD <span aria-hidden="true">↗</span></button></div></article>
-    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--adrenaline" role="img" aria-label="Vehículo RZR en un paisaje andino, imagen ilustrativa"></div><div class="package-content"><div class="package-option-top"><span>06 / Adrenalina</span><span>Para dos</span></div><h3>YUA ADRENALINE</h3><p>Hospedaje y una hora de RZR.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$185</strong></div><div><small>Sáb. / feriado</small><strong>$255</strong></div></div><button class="package-choose" type="button" data-package="YUA ADRENALINE">Elegir YUA ADRENALINE <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option package-option--featured"><div class="package-photo package-photo--illustration package-photo--romance" role="img" aria-label="Desayuno y decoración romántica"></div><div class="package-content"><div class="package-option-top"><span>02 / Para celebrar</span><span>Para dos</span></div><h3>Romance</h3><p>Hospedaje, desayuno y decoración romántica.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$135</strong></div><div><small>Sáb. / feriado</small><strong>$210</strong></div></div><button class="package-choose" type="button" data-package="Romance">Elegir Romance <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--zen" role="img" aria-label="Masaje en pareja"></div><div class="package-content"><div class="package-option-top"><span>03 / Bienestar</span><span>Para dos</span></div><h3>ZEN</h3><p>Hospedaje, desayuno y masajes en pareja.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$160</strong></div><div><small>Sáb. / feriado</small><strong>$230</strong></div></div><button class="package-choose" type="button" data-package="ZEN">Elegir ZEN <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--romance" role="img" aria-label="Desayuno y decoración romántica"></div><div class="package-content"><div class="package-option-top"><span>04 / Especial</span><span>Para dos</span></div><h3>SIGNATURE</h3><p>Hospedaje, desayuno, cena, masajes y decoración.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$230</strong></div><div><small>Sáb. / feriado</small><strong>$285</strong></div></div><button class="package-choose" type="button" data-package="SIGNATURE">Elegir SIGNATURE <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--wild" role="img" aria-label="Cuadrón en un paisaje andino"></div><div class="package-content"><div class="package-option-top"><span>05 / Aventura</span><span>Para dos</span></div><h3>YUA WILD</h3><p>Hospedaje y una hora de cuadrón.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$130</strong></div><div><small>Sáb. / feriado</small><strong>$205</strong></div></div><button class="package-choose" type="button" data-package="YUA WILD">Elegir YUA WILD <span aria-hidden="true">↗</span></button></div></article>
+    <article class="package-option"><div class="package-photo package-photo--illustration package-photo--adrenaline" role="img" aria-label="Vehículo RZR en un paisaje andino"></div><div class="package-content"><div class="package-option-top"><span>06 / Adrenalina</span><span>Para dos</span></div><h3>YUA ADRENALINE</h3><p>Hospedaje y una hora de RZR.</p><div class="package-option-prices"><div><small>Dom. a vie.</small><strong>$185</strong></div><div><small>Sáb. / feriado</small><strong>$255</strong></div></div><button class="package-choose" type="button" data-package="YUA ADRENALINE">Elegir YUA ADRENALINE <span aria-hidden="true">↗</span></button></div></article>
   </div>
   <p class="package-caption">Precios por noche para dos personas. Las actividades de aventura se realizan en Machachi, a unos 50 minutos, y están sujetas a horarios y disponibilidad.</p>
   <h3 class="prices-subtitle" id="personaliza">Personaliza tu experiencia</h3>
@@ -678,7 +685,7 @@ footer{background:#5a4433;color:#e6d8c7}
 <label class="extra-choice"><input type="checkbox" name="extras" value="Cuadrón|35"><span>Cuadrón<small>$35 por vehículo</small></span></label></div></fieldset>
       <label class="quote-full">Preguntas o comentarios <span class="quote-optional">Opcional</span><textarea name="comments" rows="4"></textarea></label>
     </form>
-    <div class="quote-summary"><div><span class="quote-summary-label">Tu estadía</span><h4>Un momento para ti.</h4><p id="quote-breakdown" aria-live="polite">Elige fechas de ingreso y salida para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El estimado es referencial. La solicitud no bloquea fechas; el equipo confirmará disponibilidad y precio por WhatsApp.</p></div><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a></div>
+    <div class="quote-summary"><div><span class="quote-summary-label">Tu estadía</span><h4>Un momento para ti.</h4><p id="quote-breakdown" aria-live="polite">Elige fechas de ingreso y salida para ver un estimado.</p><strong class="quote-total" id="quote-total">—</strong><p class="quote-foot">El precio final y la reserva se confirman por WhatsApp.</p></div><button class="button availability-button" id="check-availability" type="button">Consultar disponibilidad</button><p class="availability-status" id="availability-status" role="status"></p><a class="button" id="whatsapp-quote" href="https://wa.me/593963315303" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a></div>
   </div>
   <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
 </section>
@@ -689,6 +696,7 @@ footer{background:#5a4433;color:#e6d8c7}
   <footer>
     <a class="footer-brand" href="#inicio">YUA <small>GLAMPING</small></a>
     <a href="https://wa.me/593963315303">Reservas · +593 96 331 5303</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=YUA+Glamping+Al%C3%A1quez+Latacunga" target="_blank" rel="noopener noreferrer">Ubicación · Aláquez, Latacunga ↗</a>
     <a href="#inicio">Volver arriba ↑</a>
   </footer>
   <script>
@@ -815,7 +823,7 @@ footer{background:#5a4433;color:#e6d8c7}
   </script>
 
 <script>
-(()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'$'+n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.querySelectorAll('input[name="extras"]:checked')].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola, soy '+(d.get('name')||'')+'. Quiero consultar una reserva en YUA Glamping.\n\nCabaña: '+cabin+'\nIngreso: '+(start||'por definir')+'\nSalida: '+(end||'por definir')+'\nPersonas: '+guests+'\nPaquete: '+pkg+'\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+(d.get('comments')?.trim()?'\n\nPreguntas o comentarios: '+d.get('comments').trim():'')+'\n\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
+(()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'$'+n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.querySelectorAll('input[name="extras"]:checked')].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola'+(d.get('name')?.trim()?', soy '+d.get('name').trim():'')+'. Quiero consultar una reserva en YUA Glamping.\n\nCabaña: '+cabin+'\nIngreso: '+(start||'por definir')+'\nSalida: '+(end||'por definir')+'\nPersonas: '+guests+'\nPaquete: '+pkg+'\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+(d.get('comments')?.trim()?'\n\nPreguntas o comentarios: '+d.get('comments').trim():'')+'\n\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
 </script>
 
 <script>
@@ -828,6 +836,100 @@ document.querySelectorAll('.package-choose').forEach(button => {
     select.focus({preventScroll:true});
   });
 });
+</script>
+<script>
+
+(() => {
+  const form = document.querySelector('#quote-form');
+  const button = document.querySelector('#check-availability');
+  const status = document.querySelector('#availability-status');
+  const { cabin, checkin, checkout, guests } = form.elements;
+  const base = 'https://yua-glamping-admin-439z.onrender.com/api/public';
+  const capacities = { YUA: 5, MISAKI: 4, TULUM: 2 };
+  let request;
+  let cabins;
+  const dateFormat = new Intl.DateTimeFormat('en-CA', {timeZone: 'America/Guayaquil'});
+  function today() {
+    const parts = Object.fromEntries(dateFormat.formatToParts().map(({type, value}) => [type, value]));
+    return parts.year + '-' + parts.month + '-' + parts.day;
+  }
+  function updateFields() {
+    checkin.min = today();
+    const earliest = checkin.value && checkin.value >= checkin.min ? new Date(checkin.value + 'T00:00:00Z') : new Date(checkin.min + 'T00:00:00Z');
+    earliest.setUTCDate(earliest.getUTCDate() + 1);
+    checkout.min = earliest.toISOString().slice(0, 10);
+    const max = capacities[cabin.value];
+    for (const option of guests.options) option.disabled = Number(option.value) > max;
+    if (Number(guests.value) > max) {
+      guests.value = String(max);
+      guests.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+  function resetAvailability() {
+    request?.abort();
+    request = undefined;
+    button.disabled = false;
+    status.textContent = '';
+    updateFields();
+  }
+  async function read(path, options) {
+    const response = await fetch(base + path, options);
+    if (!response.ok) throw new Error('Availability request failed');
+    return response.json();
+  }
+  async function checkAvailability() {
+    updateFields();
+    if (!checkin.value || !checkout.value || checkin.value < checkin.min || checkout.value < checkout.min) {
+      status.textContent = 'Selecciona un ingreso válido y una salida posterior.';
+      return;
+    }
+    const current = new AbortController();
+    request = current;
+    button.disabled = true;
+    status.textContent = 'Consultando el calendario…';
+    const timeout = setTimeout(() => current.abort(), 9000);
+    try {
+      if (!cabins) {
+        const config = await read('/config', { signal: current.signal, cache: 'no-store' });
+        if (request !== current) return;
+        cabins = config.cabins;
+      }
+      const selected = cabins.find(item => item.name.trim().toUpperCase() === cabin.value);
+      if (!selected) {
+        status.textContent = 'Esta cabaña no está disponible para consulta en línea. Escríbenos por WhatsApp.';
+        return;
+      }
+      const result = await read('/availability', {
+        method: 'POST', signal: current.signal,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cabinId: selected.id, arrival: checkin.value, departure: checkout.value })
+      });
+      if (request !== current) return;
+      if (typeof result.available !== 'boolean') throw new Error('Invalid availability');
+      status.textContent = result.available
+        ? 'Fechas disponibles en el calendario. Confirma tu estadía por WhatsApp.'
+        : 'Estas fechas no están disponibles. Prueba con otras fechas o elige otra cabaña.';
+    } catch {
+      if (request !== current) return;
+      cabins = undefined;
+      status.textContent = 'No pudimos consultar el calendario. Vuelve a intentarlo o escríbenos por WhatsApp.';
+    } finally {
+      clearTimeout(timeout);
+      if (request === current) {
+        request = undefined;
+        button.disabled = false;
+      }
+    }
+  }
+  [cabin, checkin, checkout].forEach(field => field.addEventListener('input', resetAvailability));
+  [cabin, checkin, checkout].forEach(field => field.addEventListener('change', resetAvailability));
+  button.addEventListener('click', checkAvailability);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!button.disabled) checkAvailability();
+  });
+  updateFields();
+})();
 </script>
 </body>
 </html>
