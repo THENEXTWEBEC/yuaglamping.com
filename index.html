@@ -600,7 +600,7 @@ footer{background:#5a4433;color:#e6d8c7}
   <p class="prices-note">Huésped adicional: solo hospedaje +$20 por noche; Romance +$25 por persona y noche. En SIGNATURE, adicional +$55 con hospedaje, desayuno y cena o +$85 con masaje. Check-in 15:00 · Check-out 11:00. Feriados se confirman manualmente.</p>
 </section>
 
-    <section class="section booking" id="reservas"><div class="booking-box"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>Escríbenos para consultar fechas, cabañas y disponibilidad de la experiencia entre rosas.</p></div><a class="button button--light" href="https://wa.me/593963315303">WhatsApp · +593 96 331 5303 <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
+    <section class="section booking" id="contacto"><div class="booking-box"><div><span class="eyebrow">Tu próxima escapada</span><h2>Tu pausa<br><em>comienza aquí.</em></h2><p>Escríbenos para consultar fechas, cabañas y disponibilidad de la experiencia entre rosas.</p></div><a class="button button--light" href="https://wa.me/593963315303">WhatsApp · +593 96 331 5303 <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18L18 6M9 6h9v9"/></svg></a></div></section>
   </main>
 
   <footer>
@@ -612,10 +612,12 @@ footer{background:#5a4433;color:#e6d8c7}
 
     const detailSections = [...document.querySelectorAll('.cabin-detail')];
     function syncCabinRoute() {
+      const wasDetail = document.body.classList.contains('detail-mode');
       const selected = detailSections.find(section => '#' + section.id === location.hash);
       document.body.classList.toggle('detail-mode', Boolean(selected));
       detailSections.forEach(section => section.classList.toggle('is-active', section === selected));
       if (selected) window.scrollTo(0, 0);
+      else if (wasDetail && location.hash) requestAnimationFrame(() => document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView());
     }
     window.addEventListener('hashchange', syncCabinRoute);
     syncCabinRoute();
@@ -626,6 +628,16 @@ footer{background:#5a4433;color:#e6d8c7}
       const expanded = menuButton.getAttribute('aria-expanded') === 'true';
       menuButton.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('is-open', !expanded);
+    });
+    document.querySelectorAll('.cabin-detail .detail-reserve').forEach(link => {
+      link.addEventListener('click', () => {
+        const cabin = link.closest('.cabin-detail').id.replace('cabana-', '').toUpperCase();
+        const select = document.querySelector('#quote-form select[name="cabin"]');
+        if ([...select.options].some(option => option.value === cabin)) {
+          select.value = cabin;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      });
     });
     const viewer = document.createElement('div');
     viewer.className = 'photo-viewer';
@@ -720,9 +732,7 @@ footer{background:#5a4433;color:#e6d8c7}
   </script>
 
 <script>
-(()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'
-</html>
-+n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.elements.extras.selectedOptions].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola, soy '+(d.get('name')||'')+'. Quiero consultar una reserva en YUA Glamping.\\n\\nCabaña: '+cabin+'\\nIngreso: '+(start||'por definir')+'\\nSalida: '+(end||'por definir')+'\\nPersonas: '+guests+'\\nPaquete: '+pkg+'\\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+'\\n\\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
+(()=>{const f=document.querySelector('#quote-form');if(!f)return;const t=document.querySelector('#quote-total'),dsp=document.querySelector('#quote-breakdown'),link=document.querySelector('#whatsapp-quote');const rates={'Escapada':[100,160],'Romance':[135,210],'ZEN':[160,230],'SIGNATURE':[230,285],'YUA WILD':[130,205],'YUA ADRENALINE':[185,255]};const money=n=>'$'+n.toFixed(2).replace(/\.00$/,'').replace('.',',');function update(){const d=new FormData(f),start=d.get('checkin'),end=d.get('checkout'),guests=Number(d.get('guests')),pkg=d.get('package'),cabin=d.get('cabin'),extras=[...f.elements.extras.selectedOptions].map(o=>{const [name,price]=o.value.split('|');return{name,price:Number(price)}});let valid=Boolean(start&&end&&end>start),nights=0,total=0;if(valid){let day=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');while(day<last&&nights<45){total+=rates[pkg][day.getDay()===6?1:0];nights++;day.setDate(day.getDate()+1)}if(nights>=45)valid=false;const included={Romance:['Desayuno','Decoración romántica'],ZEN:['Desayuno','Masaje relajante'],SIGNATURE:['Desayuno','Cena','Masaje relajante','Decoración romántica'],'YUA WILD':['Cuadrón'],'YUA ADRENALINE':['RZR']}[pkg]||[];const charged=extras.filter(x=>!included.includes(x.name));if(charged.some(x=>x.name==='Decoración romántica')&&charged.some(x=>x.name==='Decoración premium')){valid=false;dsp.textContent='Elige decoración romántica o premium, no ambas.'}else{total+=charged.reduce((a,x)=>a+x.price,0);const extra=guests-2;if(extra>0){if(pkg==='Escapada')total+=extra*20*nights;else if(pkg==='Romance')total+=extra*25*nights;else if(pkg==='SIGNATURE')total+=extra*55*nights;else valid=false}if(pkg==='SIGNATURE'&&extra>0&&extras.some(x=>x.name==='Masaje adicional'))total+=extra*30;dsp.textContent=nights+' '+(nights===1?'noche':'noches')+' · '+cabin+' · '+guests+' personas · '+pkg+(charged.length?' · Extras: '+charged.map(x=>x.name).join(', '):'')+(!valid?' · Grupo a cotizar':'')}}else dsp.textContent='Elige fechas de ingreso y salida para ver un estimado.';t.textContent=valid?money(total)+' estimados':(start&&end?'Precio a confirmar':'—');const msg='Hola, soy '+(d.get('name')||'')+'. Quiero consultar una reserva en YUA Glamping.\\n\\nCabaña: '+cabin+'\\nIngreso: '+(start||'por definir')+'\\nSalida: '+(end||'por definir')+'\\nPersonas: '+guests+'\\nPaquete: '+pkg+'\\nExtras: '+(extras.map(x=>x.name).join(', ')||'Ninguno')+'\\nTotal estimado: '+(valid?money(total):'A confirmar por WhatsApp')+'\\n\\n¿Me ayudan a confirmar disponibilidad?';link.href='https://wa.me/593963315303?text='+encodeURIComponent(msg)}f.addEventListener('input',update);f.addEventListener('change',update);update()})();
 </script>
 
 </body>
