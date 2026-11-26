@@ -247,31 +247,19 @@ body{overflow-x:hidden} .site-header{width:calc(100% - 10vw);max-width:none;top:
     .hero-photo { z-index: -3; }
     .hero-video, .booking-photo { z-index: -2; }
     .hero::before, .booking-box::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-    .hero::before {
-      background:
-        linear-gradient(180deg, rgb(22 23 18 / 52%), transparent 155px),
-        radial-gradient(ellipse 88% 61% at 8% 52%, rgb(22 23 18 / 65%), rgb(22 23 18 / 38%) 53%, transparent 100%);
-    }
+    .hero::before { background: none; }
     .hero-content, .hero-note, .site-header { text-shadow: 0 1px 12px rgb(20 22 16 / 58%); }
     .site-header .button, .detail-mode .site-header { text-shadow: none; }
     .booking-box { position: relative; isolation: isolate; }
-    .booking-box::before {
-      background: radial-gradient(ellipse 73% 84% at 5% 51%, rgb(22 27 20 / 77%), rgb(22 27 20 / 44%) 56%, transparent);
-    }
+    .booking-box::before { background: none; }
     .booking-box p { color: #fffaf4; }
     .booking-box .button { background-color: rgb(28 31 23 / 57%); }
     .booking-box .button:hover { background-color: #fffaf4; }
     @media (max-width: 640px) {
       .hero-photo { object-position: 58% center; }
-      .hero::before {
-        background:
-          linear-gradient(180deg, rgb(22 23 18 / 45%), transparent 135px),
-          radial-gradient(ellipse 121% 53% at 4% 57%, rgb(22 23 18 / 73%), rgb(22 23 18 / 40%) 61%, transparent);
-      }
+      .hero::before { background: none; }
       .site-header .nav { text-shadow: none; }
-      .booking-box::before {
-        background: radial-gradient(ellipse 115% 76% at 9% 51%, rgb(22 27 20 / 75%), rgb(22 27 20 / 39%) 70%, transparent);
-      }
+      .booking-box::before { background: none; }
     }
 
     .experience-video-card:first-child{grid-column:auto;grid-row:auto}
@@ -326,7 +314,7 @@ body{background:var(--beige);color:var(--ink)}
 .hero-content{color:#f3eadc}
 .hero-copy,.hero-location{color:rgba(243,234,220,.94)}
 .hero-note{color:#f3eadc}
-.hero::after{background:linear-gradient(90deg,rgba(42,29,20,.75),rgba(54,38,27,.48) 48%,rgba(54,38,27,.08))}
+.hero::after{background:none}
 .hero-content,.hero-note,.site-header{text-shadow:0 1px 12px rgba(35,24,17,.48)}
 .manifesto{background:#eee3d2;color:#382b21}
 .manifesto-number,.manifesto-copy p{color:#6f6255}
@@ -391,7 +379,7 @@ footer{background:#5a4433;color:#e6d8c7}
 .package-intro h2 em{color:#986447;font-weight:400}
 .package-intro p{max-width:370px;margin:0 0 7px;color:#6f6255;font-size:14px;line-height:1.8}
 .package-visual{position:relative;min-height:300px;margin-bottom:46px;overflow:hidden;background:#8e765f url('assets/experience/experience-01-1365.webp') center 44%/cover no-repeat}
-.package-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(41,31,23,.64),rgba(41,31,23,.08) 75%)}
+.package-visual:before{content:none}
 .package-visual-copy{position:absolute;left:clamp(24px,5vw,66px);bottom:clamp(25px,4vw,50px);max-width:420px;color:#f3eadc}
 .package-visual-copy span{font-size:10px;letter-spacing:.2em;text-transform:uppercase}
 .package-visual-copy p{margin:12px 0 0;font:400 clamp(30px,4.3vw,55px)/1.04 var(--serif)}
