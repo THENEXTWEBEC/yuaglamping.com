@@ -1051,6 +1051,7 @@ document.querySelectorAll('.package-choose').forEach(button => {
       cabinId: selected.id, arrival: checkin.value, departure: checkout.value,
       guests: guests.value, packageName: values.get('package'),
       name: String(values.get('name') || ''),
+      comments: String(values.get('comments') || ''),
       extras: [...form.querySelectorAll('input[name="extras"]:checked')].map(input => input.value.split('|')[0])
     });
     return true;
@@ -1067,7 +1068,7 @@ document.querySelectorAll('.package-choose').forEach(button => {
     status.textContent = 'Consultando el calendario…';
     const timeout = setTimeout(() => current.abort(), 9000);
     try {
-      if (!cabins) {
+      {
         const config = await read('/config', { signal: current.signal, cache: 'no-store' });
         if (request !== current) return;
         cabins = config.cabins;
