@@ -1137,5 +1137,10 @@ document.querySelectorAll('.package-choose').forEach(button => {
 .quote-options>.quote-dropdown:first-child[open]>summary svg{transform:translateY(-50%) rotate(180deg)}
 @media(max-width:400px){.quote-options>.quote-dropdown:first-child>summary{padding:9px 20px}}
 </style>
+
+<style>
+#quote-form>label:has([name="checkin"]),#quote-form>label:has([name="checkout"]){grid-column:span 1}
+@media(max-width:700px){#quote-form>label:has([name="checkin"]),#quote-form>label:has([name="checkout"]){grid-column:span 1}}
+</style>
 </body>
 </html>
