@@ -616,8 +616,8 @@ footer{background:#5a4433;color:#e6d8c7}
           <summary><span>Personas</span><strong data-current-value>2 personas</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="quote-dropdown-content"><select name="guests" aria-label="Personas"><option value="2">2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 personas</option></select></div>
         </details>
-        <details class="quote-dropdown">
-          <summary><span>Paquete</span><strong data-current-value>Escapada</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        <details class="quote-dropdown quote-dropdown--package">
+          <summary><span>Paquete</span><strong data-current-value>Escapada</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="quote-dropdown-content"><select name="package" aria-label="Paquete"><option>Escapada</option><option>Romance</option><option>ZEN</option><option>SIGNATURE</option><option>YUA WILD</option><option>YUA ADRENALINE</option></select></div>
         </details>
       </div>
@@ -1113,5 +1113,20 @@ document.querySelectorAll('.package-choose').forEach(button => {
   updateFields();
 })();
 </script>
+
+<style>
+/* Give guest count and package names room to read clearly. */
+.quote-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.quote-dropdown--package{grid-column:1/-1}
+.quote-options>.quote-dropdown:nth-child(2)>summary{min-height:82px;display:flex;flex-direction:column;justify-content:center;gap:4px;text-align:center;position:relative;padding:10px 30px}
+.quote-options>.quote-dropdown:nth-child(2)>summary span{font-size:12px}
+.quote-options>.quote-dropdown:nth-child(2)>summary strong{font-size:22px;line-height:1.15;white-space:normal}
+.quote-options>.quote-dropdown:nth-child(2)>summary svg{position:absolute;right:12px;top:50%;transform:translateY(-50%)}
+.quote-options>.quote-dropdown:nth-child(2)[open]>summary svg{transform:translateY(-50%) rotate(180deg)}
+.quote-dropdown--package>summary{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) 16px;min-height:62px}
+.quote-dropdown--package>summary strong{font-size:16px;white-space:normal;overflow-wrap:anywhere;text-overflow:clip}
+.quote-dropdown-content select{display:block;width:100%;min-height:56px;margin-top:10px;font-size:17px}
+@media(max-width:400px){.quote-options{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-options>.quote-dropdown:nth-child(2)>summary{padding:9px 20px}.quote-dropdown--package>summary{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) 14px}}
+</style>
 </body>
 </html>
